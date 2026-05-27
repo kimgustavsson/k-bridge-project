@@ -1,0 +1,43 @@
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          navy: '#1B2A4E',
+          'navy-dark': '#152038',
+          'navy-deep': '#0F1729',
+          yellow: '#F5C518',
+          'yellow-dark': '#E0B015',
+          slate: '#3A4B6B',
+        },
+        neutral: {
+          bg: '#F5F5F5',
+          card: '#FFFFFF',
+          text: '#1B2A4E',
+          muted: '#6B7280',
+        },
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'serif'],
+      },
+      boxShadow: {
+        card: '0 4px 20px rgba(27, 42, 78, 0.08)',
+        'card-hover': '0 8px 30px rgba(27, 42, 78, 0.15)',
+      },
+      maxWidth: {
+        container: '1200px',
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
