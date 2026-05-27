@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Globe, Menu, X } from 'lucide-react';
-import { Logo } from '@/components/ui/Logo';
-import { NAV_ITEMS, LOCALES, type Locale } from '@/constants/navigation';
-import { cn } from '@/lib/cn';
+import { useState } from "react";
+import Link from "next/link";
+import { Globe, Menu, X } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
+import { NAV_ITEMS, LOCALES, type Locale } from "@/constants/navigation";
+import { cn } from "@/lib/cn";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [locale, setLocale] = useState<Locale>('EN');
+  const [locale, setLocale] = useState<Locale>("EN");
 
-  // For demo purposes "active" highlight is the second item (Programs & Courses)
-  const activeHref = '/programs';
+  // This is the landing page, so Home is the active route.
+  const activeHref = "/";
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200/60 bg-white/95 backdrop-blur-md">
@@ -20,7 +20,10 @@ export function Header() {
         <Logo />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-10 md:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-10 md:flex"
+          aria-label="Primary"
+        >
           {NAV_ITEMS.map((item) => {
             const isActive = item.href === activeHref;
             return (
@@ -28,10 +31,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'relative text-sm font-medium transition-colors',
-                  isActive
-                    ? 'text-brand-yellow-dark'
-                    : 'text-brand-navy hover:text-brand-yellow-dark',
+                  "relative text-sm font-medium text-brand-navy transition-colors hover:text-brand-yellow-dark",
                 )}
               >
                 {item.label}
@@ -55,7 +55,11 @@ export function Header() {
             aria-controls="mobile-nav"
             aria-label="Toggle navigation"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </div>
@@ -108,10 +112,16 @@ function LocaleSwitcher({ locale, onChange }: LocaleSwitcherProps) {
       <span>
         {LOCALES.map((l, i) => (
           <span key={l}>
-            <span className={l === locale ? 'text-brand-navy' : 'text-neutral-muted'}>
+            <span
+              className={
+                l === locale ? "text-brand-navy" : "text-neutral-muted"
+              }
+            >
               {l}
             </span>
-            {i < LOCALES.length - 1 && <span className="mx-1 text-neutral-300">/</span>}
+            {i < LOCALES.length - 1 && (
+              <span className="mx-1 text-neutral-300">/</span>
+            )}
           </span>
         ))}
       </span>

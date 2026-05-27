@@ -8,7 +8,7 @@ export function Hero() {
       {/* Hero image with overlay text */}
       <div className="relative h-[420px] w-full overflow-hidden md:h-[520px] lg:h-[560px]">
         <Image
-          src="/images/hero-korea.jpg"
+          src="/images/hero-image.jpg"
           alt="Traditional Korean palace architecture"
           fill
           sizes="100vw"
