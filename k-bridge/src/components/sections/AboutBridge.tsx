@@ -46,7 +46,7 @@ export function AboutBridge() {
           </div>
 
           {/* Bottom row: left + middle-text + right */}
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-6">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
             <JourneyNode step={leftStep} showDot />
             <JourneyNode step={middleStep} showDot={false} />
             <JourneyNode step={rightStep} showDot />

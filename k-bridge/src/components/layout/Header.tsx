@@ -6,13 +6,12 @@ import { Globe, Menu, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { NAV_ITEMS, LOCALES, type Locale } from "@/constants/navigation";
 import { cn } from "@/lib/cn";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [locale, setLocale] = useState<Locale>("EN");
-
-  // This is the landing page, so Home is the active route.
-  const activeHref = "/";
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200/60 bg-white/95 backdrop-blur-md">
@@ -25,7 +24,7 @@ export function Header() {
           aria-label="Primary"
         >
           {NAV_ITEMS.map((item) => {
-            const isActive = item.href === activeHref;
+            const isActive = item.href === pathname;
             return (
               <Link
                 key={item.href}
