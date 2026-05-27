@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export function ProgramsHero() {
   return (
@@ -29,9 +29,7 @@ export function ProgramsHero() {
 
             {/* Title */}
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] md:text-5xl lg:text-6xl">
-              From your first Korean class
-              <br className="hidden md:block" />
-              {' '}to building a life in Korea.
+              Find the pathway that fits your goals.
             </h1>
 
             {/* Subtitle */}
