@@ -5,28 +5,19 @@
 export function BridgeArc() {
   return (
     <svg
-      viewBox="0 0 1000 220"
-      className="absolute inset-x-0 top-0 hidden h-full w-full md:block"
+      viewBox="0 0 1000 110"
+      className="absolute inset-0 h-full w-full"
       preserveAspectRatio="none"
       aria-hidden="true"
     >
-      {/* Left arc: from left node up to center K */}
       <path
-        d="M 130 165 Q 315 -15 500 65"
+        d="M 167 100 Q 500 -90 833 100"
         fill="none"
         stroke="#F5C518"
-        strokeWidth="2.5"
+        strokeWidth="2"
         strokeLinecap="round"
-        className="bridge-arc-path"
-      />
-      {/* Right arc: from center K down to right node */}
-      <path
-        d="M 500 65 Q 685 -15 870 165"
-        fill="none"
-        stroke="#F5C518"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        className="bridge-arc-path"
+        strokeDasharray="6 7"
+        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );

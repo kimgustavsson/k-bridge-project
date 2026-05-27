@@ -1,4 +1,4 @@
-import type { FeatureItem } from '@/types';
+import type { FeatureItem } from "@/types";
 
 interface FeatureCardProps {
   feature: FeatureItem;
@@ -9,7 +9,7 @@ export function FeatureCard({ feature }: FeatureCardProps) {
 
   return (
     <article className="group relative flex flex-col rounded-2xl bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover lg:p-7">
-      <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-navy text-white transition-colors group-hover:bg-brand-yellow group-hover:text-brand-navy">
+      <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-yellow text-white transition-colors group-hover:bg-brand-navy group-hover:text-brand-yellow">
         <Icon className="h-5 w-5" strokeWidth={2} />
       </div>
 
