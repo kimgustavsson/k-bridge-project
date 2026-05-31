@@ -37,7 +37,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const CONTACT_INFO = {
-  email: "lyj979082@daum.net",
   phone: "+82 31-374-9790",
   address:
     "313–314, Cine Outlet, 198 Gyeonggi-daero, Osan-si, Gyeonggi-do, South Korea",

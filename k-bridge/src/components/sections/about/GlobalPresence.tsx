@@ -1,5 +1,3 @@
-import { Quote } from "lucide-react";
-import { NetworkTree } from "./NetworkTree";
 import { OFFICES } from "@/constants/offices";
 import { cn } from "@/lib/cn";
 
@@ -18,46 +16,43 @@ export function GlobalPresence() {
           </span>
         </div>
 
-        {/* --- Section A: Offices --- */}
+        {/* Title */}
+        <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-4xl lg:text-5xl">
+          Our Headquarters & Branches
+        </h2>
+
+        {/* Subtitle */}
+        <p className="mx-auto mt-6 max-w-xl text-center text-base leading-relaxed text-neutral-muted md:text-lg">
+          Four locations across three countries, with one shared goal: to make
+          Korean education accessible from wherever you call home.
+        </p>
+
+        {/* Offices */}
         <div className="mt-12 md:mt-16">
-          <div className="text-center">
-            <h3 className="font-display text-2xl font-bold text-brand-navy md:text-3xl lg:text-4xl">
-              Our Global Headquarters & Branches
-            </h3>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-neutral-muted md:text-base">
-              Four locations across three countries, with one shared goal: to
-              make Korean education accessible from wherever you call home.
-            </p>
-          </div>
+          <HQCard office={hq} />
 
-          {/* Featured layout: HQ wide on top, branches in 3-column row below */}
-          <div className="mt-10 md:mt-14">
-            <HQCard office={hq} />
-
-            <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-6 md:gap-6 lg:grid-cols-3">
-              {branches.map((office) => (
-                <BranchCard key={office.id} office={office} />
-              ))}
-            </div>
+          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-6 md:gap-6 lg:grid-cols-3">
+            {branches.map((office) => (
+              <BranchCard key={office.id} office={office} />
+            ))}
           </div>
         </div>
 
-        {/* --- Section B: Network Tree --- */}
-        <div className="mt-20 md:mt-28">
-          <div className="text-center">
-            <h3 className="font-display text-2xl font-bold text-brand-navy md:text-3xl lg:text-4xl">
-              Our Network Reach
-            </h3>
-            <p className="mx-auto mt-4 max-w-2xl text-sm text-neutral-muted md:text-base">
-              Beyond our four physical offices, we recruit and partner with
-              students and institutions across Asia. Here&apos;s where our
-              network reaches today.
-            </p>
-          </div>
-
-          <div className="mt-12 md:mt-16">
-            <NetworkTree />
-          </div>
+        {/* Network note — small, centered, restrained */}
+        <div className="mx-auto mt-16 max-w-3xl border-t border-brand-navy/10 pt-10 text-center md:mt-20 md:pt-12">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-yellow-dark">
+            Beyond our offices
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-neutral-muted md:text-base">
+            We also recruit and welcome students from{" "}
+            <span className="font-semibold text-brand-navy">Mongolia</span>,{" "}
+            <span className="font-semibold text-brand-navy">Indonesia</span>,{" "}
+            <span className="font-semibold text-brand-navy">Myanmar</span>,{" "}
+            <span className="font-semibold text-brand-navy">Uzbekistan</span>,{" "}
+            <span className="font-semibold text-brand-navy">Nepal</span>, and
+            partner with universities across China and Vietnam beyond our office
+            cities.
+          </p>
         </div>
       </div>
     </section>

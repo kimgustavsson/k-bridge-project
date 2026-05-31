@@ -44,15 +44,6 @@ export function Footer() {
           {/* Contact info */}
           <ul className="mt-6 space-y-3 text-sm text-white/75">
             <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 flex-shrink-0 text-brand-yellow" />
-              <a
-                href={`mailto:${CONTACT_INFO.email}`}
-                className="hover:text-white"
-              >
-                {CONTACT_INFO.email}
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 flex-shrink-0 text-brand-yellow" />
               <a
                 href={`tel:${CONTACT_INFO.phone}`}
