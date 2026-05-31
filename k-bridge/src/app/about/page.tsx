@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AboutHero } from "@/components/sections/about/AboutHero";
 import { GlobalPresence } from "@/components/sections/about/GlobalPresence";
+import { OurTeam } from "@/components/sections/about/OurTeam";
 
 export const metadata = {
   title: "About Us | K-BRIDGE",
@@ -16,7 +17,8 @@ export default function AboutPage() {
       <main>
         <AboutHero />
         <GlobalPresence />
-        {/* Global Presence, Memberships, Why K-BRIDGE next */}
+        <OurTeam />
+        {/* Memberships next */}
       </main>
       <Footer />
     </>

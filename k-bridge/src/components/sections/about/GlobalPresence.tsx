@@ -59,22 +59,6 @@ export function GlobalPresence() {
             <NetworkTree />
           </div>
         </div>
-
-        {/* --- Pull quote --- */}
-        <figure className="mx-auto mt-20 max-w-3xl text-center md:mt-28">
-          <Quote
-            className="mx-auto h-10 w-10 text-orange-500"
-            strokeWidth={1.5}
-          />
-          <blockquote className="mt-6 font-display text-xl leading-relaxed text-brand-navy md:text-2xl lg:text-3xl">
-            The hardest part of studying abroad isn&apos;t the studying.
-            It&apos;s everything around it. That&apos;s what we&apos;re here
-            for.
-          </blockquote>
-          <figcaption className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-orange-700">
-            — K-BRIDGE founding principle
-          </figcaption>
-        </figure>
       </div>
     </section>
   );
