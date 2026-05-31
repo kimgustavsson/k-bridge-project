@@ -4,7 +4,7 @@ import { ArrowRight, Quote } from "lucide-react";
 
 export function AboutHero() {
   return (
-    <section className="bg-neutral-bg">
+    <section className="bg-white">
       <div className="container-padded grid grid-cols-1 gap-10 py-16 md:grid-cols-2 md:gap-16 md:py-24 lg:gap-20 lg:py-28">
         {/* Left: text content */}
         <div className="flex flex-col justify-center">
@@ -17,8 +17,8 @@ export function AboutHero() {
           </div>
 
           {/* Title */}
-          <h1 className="mt-6 font-display text-3xl font-bold leading-[1.1] text-brand-navy md:text-5xl lg:text-6xl">
-            Empowering International Students education.
+          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] text-brand-navy md:text-5xl lg:text-6xl">
+            Empowering International Students.
           </h1>
 
           {/* Quote-style company history */}
@@ -28,16 +28,14 @@ export function AboutHero() {
               strokeWidth={1.5}
               fill="currentColor"
             />
-            <p className="font-display text-base italic leading-relaxed text-brand-navy md:text-md">
+            <p className="font-display text-base italic leading-relaxed text-brand-navy md:text-base">
               Founded in 2014, K-BRIDGE opened its first language institute in
               Hanoi in 2016 and expanded to a larger campus in 2019. We&apos;ve
               been growing steadily ever since.
             </p>
-            <p className="mt-3 font-display text-base italic leading-relaxed text-brand-navy md:text-lg">
-              Today, we use our local network and recruitment experience to
-              support international students bound for Korea, collaborating with
-              universities to strengthen Korean higher education&apos;s global
-              reach.
+            <p className="mt-3 font-display text-base italic leading-relaxed text-brand-navy md:text-base">
+              Today, we partner with universities across Korea to support
+              international students from their first inquiry to graduation.
             </p>
           </blockquote>
 
