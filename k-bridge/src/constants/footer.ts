@@ -55,7 +55,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const CONTACT_INFO = {
-  email: "hello@k-bridge.com",
   phone: "+82 2 1234 5678",
-  address: "Seoul, South Korea",
+  fax: "+82 031-374-9790",
+  address:
+    "313–314, Cine Outlet, 198 Gyeonggi-daero, Osan-si, Gyeonggi-do, South Korea",
 } as const;

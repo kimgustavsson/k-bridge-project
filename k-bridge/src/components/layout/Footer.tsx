@@ -3,11 +3,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { NewsletterForm } from "@/components/ui/NewsletterForm";
-import {
-  FOOTER_GROUPS,
-  SOCIAL_LINKS,
-  CONTACT_INFO,
-} from "@/constants/footer";
+import { FOOTER_GROUPS, SOCIAL_LINKS, CONTACT_INFO } from "@/constants/footer";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -50,10 +46,10 @@ export function Footer() {
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 flex-shrink-0 text-brand-yellow" />
               <a
-                href={`mailto:${CONTACT_INFO.email}`}
+                href={`mailto:${CONTACT_INFO.fax}`}
                 className="hover:text-white"
               >
-                {CONTACT_INFO.email}
+                {CONTACT_INFO.fax}
               </a>
             </li>
             <li className="flex items-center gap-3">
