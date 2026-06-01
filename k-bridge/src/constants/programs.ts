@@ -8,7 +8,7 @@ export const PROGRAMS: ProgramItem[] = [
       "Start your journey with comprehensive Korean language programs",
     image: "/images/language-program-card.jpg",
     ctaLabel: "Explore Language Programs",
-    href: "/programs/language",
+    href: "/programs",
   },
   {
     id: "degree",
@@ -17,6 +17,6 @@ export const PROGRAMS: ProgramItem[] = [
       "Explore degree programs and courses at top Korean universities",
     image: "/images/find-program-card.jpg",
     ctaLabel: "Browse Degree Programs",
-    href: "/programs/degree",
+    href: "/programs",
   },
 ];

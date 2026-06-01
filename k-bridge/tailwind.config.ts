@@ -21,7 +21,7 @@ const config: Config = {
           "emerald-light": "#D1FAE5",
         },
         neutral: {
-          bg: "#F5F5F5",
+          bg: "#FCFCFC",
           card: "#FFFFFF",
           text: "#1B2A4E",
           muted: "#6B7280",

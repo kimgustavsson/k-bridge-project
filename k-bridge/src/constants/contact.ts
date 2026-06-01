@@ -14,8 +14,8 @@ export const CONTACT_METHODS: ContactMethod[] = [
     id: "email",
     icon: Mail,
     label: "Email",
-    value: "hello@k-bridge.com",
-    href: "mailto:hello@k-bridge.com",
+    value: "temporary@email.com",
+    href: "mailto:temporary@email.com",
     hint: "We reply within 1–2 business days.",
   },
   {
@@ -36,9 +36,9 @@ export interface MessagingChannel {
 }
 
 export const MESSAGING_CHANNELS: MessagingChannel[] = [
-  { id: "kakao", name: "KakaoTalk", region: "Korea", handle: "@kbridge" },
-  { id: "zalo", name: "Zalo", region: "Vietnam", handle: "+84 XXX XXX XXX" },
-  { id: "wechat", name: "WeChat", region: "China", handle: "kbridge_official" },
+  { id: "KakaoTalk", name: "KakaoTalk", region: "Korea", handle: "@kbridge" },
+  { id: "WhatsApp", name: "WhatsApp", region: "Global", handle: "+84 XXX XXX XXX" },
+  { id: "WeChat", name: "WeChat", region: "China", handle: "kbridge_official" },
 ];
 
 export interface FAQItem {
