@@ -196,7 +196,7 @@ export function ContactForm() {
                 </button>
 
                 <p className="text-xs text-neutral-muted">
-                  We&apos;ll get back to you within 1–2 business days.
+                  We&apos;ll get back to you within 1–3 business days.
                 </p>
               </div>
             </form>

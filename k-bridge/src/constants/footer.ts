@@ -5,26 +5,26 @@ export const FOOTER_GROUPS: FooterLinkGroup[] = [
   {
     title: "Programs",
     links: [
-      { label: "Korean Language", href: "/programs/language" },
-      { label: "Undergraduate", href: "/programs/undergraduate" },
-      { label: "Graduate", href: "/programs/graduate" },
+      { label: "Korean Language", href: "/programs" },
+      { label: "Undergraduate", href: "/programs" },
+      { label: "Graduate", href: "/programs" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Programs & Courses", href: "/resources/application" },
-      { label: "Scholarships", href: "/resources/scholarships" },
-      { label: "Visa Information", href: "/resources/visa" },
-      { label: "Student Life", href: "/resources/student-life" },
+      { label: "Programs & Pathways", href: "/programs" },
+      { label: "Scholarships", href: "/contact" },
+      { label: "Visa Information", href: "/contact" },
+      { label: "Student Life", href: "/contact" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "Our Team", href: "/alumni" },
-      { label: "Partner Universities", href: "/partners" },
+      { label: "Our Team", href: "/about" },
+      { label: "Partner Universities", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
   },

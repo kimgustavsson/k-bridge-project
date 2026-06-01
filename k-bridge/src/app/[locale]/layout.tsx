@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import { FloatingActions } from "@/components/layout/FloatingActions";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,16 +32,28 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  // Validate that the incoming `locale` parameter is valid
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${fraunces.variable}`}>
       <body className="font-sans">
-        {children}
-        <FloatingActions />
+        <NextIntlClientProvider>
+          {children}
+          <FloatingActions />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

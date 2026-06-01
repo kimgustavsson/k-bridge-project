@@ -1,0 +1,59 @@
+{
+  "navigation": {
+    "home": "Home",
+    "programs": "Programs & Pathways",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "The bridge between where you are and where you're going. End-to-end consulting for international students pursuing higher education in South Korea.",
+    "newsletter": {
+      "headline": "Your Gateway to Study in Korea",
+      "subheadline": "Get application tips, scholarship updates, and program news delivered straight to your inbox.",
+      "noSpam": "No spam. Unsubscribe anytime.",
+      "emailPlaceholder": "your@email.com",
+      "subscribe": "Subscribe",
+      "subscribing": "Subscribing...",
+      "subscribed": "Subscribed ✓"
+    },
+    "groups": {
+      "programs": {
+        "title": "Programs",
+        "language": "Korean Language",
+        "undergraduate": "Undergraduate",
+        "graduate": "Graduate Programs",
+        "exchange": "Exchange Programs"
+      },
+      "resources": {
+        "title": "Resources",
+        "application": "Application Guide",
+        "scholarships": "Scholarships",
+        "visa": "Visa Information",
+        "studentLife": "Student Life"
+      },
+      "company": {
+        "title": "Company",
+        "about": "About Us",
+        "alumni": "Our Alumni",
+        "partners": "Partner Universities",
+        "contact": "Contact"
+      }
+    },
+    "contact": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    },
+    "bottom": {
+      "copyright": "© {year} K-BRIDGE. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "floatingActions": {
+    "needHelp": "Need help?",
+    "contact": "Contact Us",
+    "programs": "Programs & Pathways",
+    "backToTop": "Back to Top"
+  }
+}

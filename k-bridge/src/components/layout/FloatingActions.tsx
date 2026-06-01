@@ -115,27 +115,40 @@ export function FloatingActions() {
         ))}
       </div>
 
-      {/* Main toggle button */}
-      <button
-        type="button"
-        onClick={() => setIsOpen((prev) => !prev)}
-        aria-expanded={isOpen}
-        aria-label={
-          isOpen ? "Close quick actions menu" : "Open quick actions menu"
-        }
-        className={cn(
-          "flex h-14 w-14 items-center justify-center rounded-full shadow-card transition-all duration-300 hover:shadow-card-hover",
-          isOpen
-            ? "rotate-90 bg-brand-navy text-white"
-            : "bg-brand-yellow text-brand-navy hover:bg-brand-yellow-dark",
-        )}
-      >
-        {isOpen ? (
-          <X className="h-6 w-6" strokeWidth={2.5} />
-        ) : (
-          <MessageCircle className="h-6 w-6" strokeWidth={2.5} />
-        )}
-      </button>
+      <div className="relative flex items-center gap-3">
+        {/* Tooltip — only when closed */}
+        <span
+          className={cn(
+            "rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-brand-navy shadow-card transition-all duration-300 md:text-sm",
+            isOpen
+              ? "pointer-events-none translate-x-2 opacity-0"
+              : "translate-x-0 opacity-100",
+          )}
+        >
+          Need help?
+        </span>
+
+        <button
+          type="button"
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-expanded={isOpen}
+          aria-label={
+            isOpen ? "Close quick actions menu" : "Open quick actions menu"
+          }
+          className={cn(
+            "flex h-14 w-14 items-center justify-center rounded-full shadow-card transition-all duration-300 hover:shadow-card-hover",
+            isOpen
+              ? "rotate-90 bg-brand-navy text-white"
+              : "bg-orange-300 text-brand-navy hover:bg-brand-yellow-dark",
+          )}
+        >
+          {isOpen ? (
+            <X className="h-6 w-6" strokeWidth={2.5} />
+          ) : (
+            <MessageCircle className="h-6 w-6" strokeWidth={2.5} />
+          )}
+        </button>
+      </div>
     </div>
   );
 }
