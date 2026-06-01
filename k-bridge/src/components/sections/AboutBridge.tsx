@@ -9,25 +9,25 @@ export function AboutBridge() {
   const rightStep = JOURNEY_STEPS[2];
 
   return (
-    <section className="relative bg-brand-navy py-20 text-white md:py-28">
+    <section className="bg-orange-50 py-20 md:py-28">
       <div className="container-padded">
         {/* Eyebrow */}
         <div className="mx-auto flex items-center justify-center gap-4">
-          <span className="h-0.5 w-10 bg-brand-yellow" />
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-white">
+          <span className="h-0.5 w-10 bg-brand-navy" />
+          <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-navy">
             About K-Bridge
           </span>
         </div>
 
         {/* Title */}
-        <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight md:text-5xl lg:text-[3.4rem]">
+        <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-5xl lg:text-[3.4rem]">
           The bridge between where
           <br className="hidden md:block" /> you are and where you&apos;re
           going.
         </h2>
 
         {/* Subtitle */}
-        <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-white/75 md:text-base">
+        <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-brand-navy/70 md:text-base">
           K-Bridge bridges the gap between your home country and Korean
           academia, allowing you to simply cross over without the effort of
           building it yourself.
@@ -66,7 +66,7 @@ export function AboutBridge() {
 
 function KNode() {
   return (
-    <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-brand-yellow bg-brand-yellow text-brand-navy shadow-[0_0_0_8px_rgba(245,197,24,0.15)]">
+    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-navy text-white shadow-[0_0_0_8px_rgba(27,42,78,0.12)]">
       <span className="font-display text-xl font-bold">K</span>
     </div>
   );
@@ -80,10 +80,10 @@ interface JourneyNodeProps {
 function JourneyNode({ step, showDot }: JourneyNodeProps) {
   return (
     <div className="flex flex-col items-center text-center">
-      {/* Always reserve dot space so all columns align; hide it when showDot is false */}
+      {/* Dot — navy now */}
       <span
         className={cn(
-          "mb-5 h-3 w-3 rounded-full bg-brand-yellow",
+          "mb-5 h-3 w-3 rounded-full bg-brand-navy",
           !showDot && "invisible",
         )}
         aria-hidden="true"
@@ -92,17 +92,17 @@ function JourneyNode({ step, showDot }: JourneyNodeProps) {
       <p
         className={cn(
           "text-[11px] font-bold uppercase tracking-[0.18em]",
-          step.highlight ? "text-brand-yellow" : "text-white/55",
+          step.highlight ? "text-brand-yellow-dark" : "text-brand-navy/55",
         )}
       >
         {step.label}
       </p>
 
-      <h3 className="mt-1.5 font-display text-xl font-semibold md:text-2xl">
+      <h3 className="mt-1.5 font-display text-xl font-semibold text-brand-navy md:text-2xl">
         {step.title}
       </h3>
 
-      <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+      <p className="mt-3 max-w-xs text-sm leading-relaxed text-brand-navy/65">
         {step.description}
       </p>
     </div>

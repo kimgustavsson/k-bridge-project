@@ -13,10 +13,11 @@ export function BridgeArc() {
       <path
         d="M 167 100 Q 500 -90 833 100"
         fill="none"
-        stroke="#F5C518"
+        stroke="#1B2A4E"
         strokeWidth="2"
         strokeLinecap="round"
         strokeDasharray="6 7"
+        strokeOpacity="0.35"
         vectorEffect="non-scaling-stroke"
       />
     </svg>

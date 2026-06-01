@@ -3,7 +3,7 @@ import { PROGRAMS } from "@/constants/programs";
 
 export function Programs() {
   return (
-    <section className="bg-neutral-bg py-20 md:py-28">
+    <section className="bg-white py-20 md:py-28">
       <div className="container-padded">
         {/* Eyebrow */}
         <div className="mx-auto flex items-center justify-center gap-4">
