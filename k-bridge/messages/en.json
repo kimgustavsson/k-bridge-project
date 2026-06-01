@@ -5,6 +5,17 @@
     "about": "About Us",
     "contact": "Contact"
   },
+  "Hero": {
+    "imageAlt": "Traditional Korean palace architecture",
+    "title": "Your Gateway to<br>Study in Korea",
+    "description": "Connect with Korea's leading universities through our comprehensive educational consulting services. We provide end-to-end support for international students pursuing their academic dreams in South Korea."
+  },
+  "AboutBridge": {
+    "eyebrow": "About K-Bridge",
+    "title": "The bridge between where<br> you are and where you're going.",
+    "subtitle": "K-Bridge bridges the gap between your home country and Korean academia, allowing you to simply cross over without the effort of building it yourself.",
+    "readStory": "Read our story"
+  },
   "footer": {
     "tagline": "The bridge between where you are and where you're going. End-to-end consulting for international students pursuing higher education in South Korea.",
     "newsletter": {
