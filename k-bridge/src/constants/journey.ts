@@ -1,23 +1,22 @@
-import type { JourneyStep } from '@/types';
+export interface JourneyStep {
+  id: string;
+  /** Key under "journey.{id}" in messages/*.json */
+  translationKey: string;
+  highlight?: boolean;
+}
 
 export const JOURNEY_STEPS: JourneyStep[] = [
   {
-    id: 'home',
-    label: 'YOU ARE HERE',
-    title: 'Home Country',
-    description: 'Confused by Korean admissions, scholarships, and visa rules.',
+    id: "home",
+    translationKey: "home",
   },
   {
-    id: 'connector',
-    label: 'K-BRIDGE',
-    title: 'The Connector',
-    description: 'Alumni advisors translate the system into a plan built for you.',
+    id: "connector",
+    translationKey: "connector",
     highlight: true,
   },
   {
-    id: 'arrive',
-    label: 'YOU ARRIVE HERE',
-    title: 'Studying in Korea',
-    description: 'Enrolled, supported, and ready to thrive from day one.',
+    id: "arrive",
+    translationKey: "arrive",
   },
 ];

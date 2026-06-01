@@ -30,12 +30,31 @@
     "title": "Your Gateway to Study in Korea",
     "description": "Connect with Korea's leading universities through our comprehensive educational consulting services. We provide end-to-end support for international students pursuing their academic dreams in South Korea."
   },
-  "AboutBridge": {
+
+  "aboutBridge": {
     "eyebrow": "About K-Bridge",
-    "title": "The bridge between where<br> you are and where you're going.",
+    "title": "The bridge between where you are and where you're going.",
     "subtitle": "K-Bridge bridges the gap between your home country and Korean academia, allowing you to simply cross over without the effort of building it yourself.",
-    "readStory": "Read our story"
+    "cta": "Read our story"
   },
+  "journey": {
+    "home": {
+      "label": "You are here",
+      "title": "Home Country",
+      "description": "Confused by Korean admissions, scholarships, and visa rules."
+    },
+    "connector": {
+      "label": "K-BRIDGE",
+      "title": "The Connector",
+      "description": "Alumni advisors translate the system into a plan built for you."
+    },
+    "arrive": {
+      "label": "You arrive here",
+      "title": "Studying in Korea",
+      "description": "Enrolled, supported, and ready to thrive from day one."
+    }
+  },
+
   "footer": {
     "tagline": "The bridge between where you are and where you're going. End-to-end consulting for international students pursuing higher education in South Korea.",
     "newsletter": {

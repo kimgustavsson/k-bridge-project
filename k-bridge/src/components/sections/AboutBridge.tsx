@@ -1,9 +1,14 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { BridgeArc } from "@/components/ui/BridgeArc";
-import { JOURNEY_STEPS } from "@/constants/journey";
+import { JOURNEY_STEPS, type JourneyStep } from "@/constants/journey";
 import { cn } from "@/lib/cn";
 
 export function AboutBridge() {
+  const t = useTranslations("aboutBridge");
+
   const leftStep = JOURNEY_STEPS[0];
   const middleStep = JOURNEY_STEPS[1];
   const rightStep = JOURNEY_STEPS[2];
@@ -15,37 +20,29 @@ export function AboutBridge() {
         <div className="mx-auto flex items-center justify-center gap-4">
           <span className="h-0.5 w-10 bg-brand-navy" />
           <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-navy">
-            About K-Bridge
+            {t("eyebrow")}
           </span>
         </div>
 
         {/* Title */}
         <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-5xl lg:text-[3.4rem]">
-          The bridge between where
-          <br className="hidden md:block" /> you are and where you&apos;re
-          going.
+          {t("title")}
         </h2>
 
         {/* Subtitle */}
         <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-brand-navy/70 md:text-base">
-          K-Bridge bridges the gap between your home country and Korean
-          academia, allowing you to simply cross over without the effort of
-          building it yourself.
+          {t("subtitle")}
         </p>
 
         {/* Bridge visualization */}
         <div className="mx-auto mt-20 max-w-5xl md:mt-32">
-          {/* Top band: dashed arc + K node centered above it */}
           <div className="relative mx-auto h-28 md:h-32">
             <BridgeArc />
-
-            {/* K node position */}
             <div className="absolute left-1/2 -top-10 -translate-x-1/2 -translate-y-1/2">
               <KNode />
             </div>
           </div>
 
-          {/* Bottom row: left + middle-text + right */}
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
             <JourneyNode step={leftStep} showDot />
             <JourneyNode step={middleStep} showDot={false} />
@@ -56,7 +53,7 @@ export function AboutBridge() {
         {/* Read our story button */}
         <div className="mt-14 flex justify-center md:mt-16">
           <Button href="/about" variant="primary" withArrow>
-            Read our story
+            {t("cta")}
           </Button>
         </div>
       </div>
@@ -73,14 +70,15 @@ function KNode() {
 }
 
 interface JourneyNodeProps {
-  step: (typeof JOURNEY_STEPS)[number];
+  step: JourneyStep;
   showDot: boolean;
 }
 
 function JourneyNode({ step, showDot }: JourneyNodeProps) {
+  const t = useTranslations("journey");
+
   return (
     <div className="flex flex-col items-center text-center">
-      {/* Dot — navy now */}
       <span
         className={cn(
           "mb-5 h-3 w-3 rounded-full bg-brand-navy",
@@ -95,15 +93,15 @@ function JourneyNode({ step, showDot }: JourneyNodeProps) {
           step.highlight ? "text-brand-yellow-dark" : "text-brand-navy/55",
         )}
       >
-        {step.label}
+        {t(`${step.translationKey}.label`)}
       </p>
 
       <h3 className="mt-1.5 font-display text-xl font-semibold text-brand-navy md:text-2xl">
-        {step.title}
+        {t(`${step.translationKey}.title`)}
       </h3>
 
       <p className="mt-3 max-w-xs text-sm leading-relaxed text-brand-navy/65">
-        {step.description}
+        {t(`${step.translationKey}.description`)}
       </p>
     </div>
   );
