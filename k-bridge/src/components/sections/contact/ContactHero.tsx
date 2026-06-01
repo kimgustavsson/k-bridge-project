@@ -1,14 +1,25 @@
 export function ContactHero() {
   return (
     <section className="relative overflow-hidden bg-white py-20 md:py-28">
-      {/* Decorative shapes — large, soft, off to one side */}
+      {/* Decorative floating shapes */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        {/* Big yellow circle, top right */}
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-yellow/30 blur-3xl md:-right-20 md:-top-20" />
-        {/* Smaller emerald blob, bottom left */}
-        <div className="absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-brand-emerald/20 blur-3xl" />
-        {/* Tiny accent shape */}
-        <div className="absolute right-1/4 top-1/3 h-24 w-24 rotate-12 rounded-3xl bg-brand-yellow/40 md:h-32 md:w-32" />
+        {/* Big soft background blobs — static, just for color */}
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-yellow/20 blur-3xl md:-right-20 md:-top-20" />
+        <div className="absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-brand-emerald/15 blur-3xl" />
+
+        {/* Floating circles — top area */}
+        <div className="absolute left-[8%] top-[15%] h-12 w-12 rounded-full bg-brand-yellow/60 shadow-card animate-float-slow" />
+        <div className="absolute right-[12%] top-[20%] h-8 w-8 rounded-full bg-brand-emerald/70 shadow-card animate-float-medium" />
+        <div className="absolute left-[18%] top-[35%] h-6 w-6 rounded-full bg-brand-navy/50 shadow-card animate-float-fast" />
+
+        {/* Floating circles — middle */}
+        <div className="absolute right-[8%] top-[50%] h-10 w-10 rounded-full bg-brand-emerald/50 shadow-card animate-float-slow" />
+        <div className="absolute left-[5%] top-[60%] h-7 w-7 rounded-full bg-brand-yellow/70 shadow-card animate-float-medium" />
+
+        {/* Floating circles — bottom */}
+        <div className="absolute right-[20%] bottom-[15%] h-9 w-9 rounded-full bg-brand-yellow/60 shadow-card animate-float-fast" />
+        <div className="absolute left-[14%] bottom-[20%] h-6 w-6 rounded-full bg-brand-emerald/60 shadow-card animate-float-slow" />
+        <div className="absolute right-[35%] bottom-[8%] h-5 w-5 rounded-full bg-brand-navy/40 shadow-card animate-float-medium" />
       </div>
 
       {/* Content */}

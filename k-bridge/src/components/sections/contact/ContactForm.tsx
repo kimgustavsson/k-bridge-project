@@ -9,21 +9,56 @@ type ContactRole = "student" | "university" | "other";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [role, setRole] = useState<ContactRole>("student");
+  const [formStartTime] = useState(() => Date.now());
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     country: "",
     message: "",
+    // Honeypot field — never touched by real users
+    website: "",
   });
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Hook into backend / email service here.
+
+    // Bot detection: honeypot
+    if (formData.website) {
+      // Silently pretend success — don't tell bots they failed
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      return;
+    }
+
+    // Bot detection: submitted too fast (under 3 seconds = likely bot)
+    const elapsed = Date.now() - formStartTime;
+    if (elapsed < 3000) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      return;
+    }
+
+    setSubmitting(true);
+
+    // TODO: Hook into backend / email service here.
+    // For now, simulate async submission
+    await new Promise((resolve) => setTimeout(resolve, 800));
+
     setSubmitted(true);
+    setSubmitting(false);
     setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", email: "", phone: "", country: "", message: "" });
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      country: "",
+      message: "",
+      website: "",
+    });
   };
 
   const handleChange = (field: keyof typeof formData, value: string) => {
@@ -34,7 +69,7 @@ export function ContactForm() {
     <section className="bg-neutral-bg py-20 md:py-28">
       <div className="container-padded">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
-          {/* Form column — takes 3/5 on desktop */}
+          {/* Form column */}
           <div className="lg:col-span-3">
             <FormHeader />
 
@@ -42,6 +77,25 @@ export function ContactForm() {
               onSubmit={handleSubmit}
               className="mt-8 rounded-2xl bg-white p-6 shadow-card md:p-8"
             >
+              {/* Honeypot — hidden from real users, only bots fill this */}
+              <div
+                className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0"
+                aria-hidden="true"
+              >
+                <label htmlFor="contact-website">
+                  Website (leave this empty)
+                </label>
+                <input
+                  id="contact-website"
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={(e) => handleChange("website", e.target.value)}
+                />
+              </div>
+
               {/* Role selector */}
               <fieldset>
                 <legend className="text-sm font-semibold text-brand-navy">
@@ -87,7 +141,7 @@ export function ContactForm() {
                 />
               </div>
 
-              {/* Phone + Country (both optional) */}
+              {/* Phone + Country */}
               <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <Field
                   label="Phone"
@@ -119,13 +173,23 @@ export function ContactForm() {
                 />
               </div>
 
-              {/* Submit + status */}
+              {/* Submit */}
               <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-full bg-brand-emerald px-7 py-3 text-sm font-semibold text-white transition-all hover:bg-brand-emerald-dark hover:shadow-card-hover md:text-base"
+                  disabled={submitting}
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold text-white transition-all md:text-base",
+                    submitting
+                      ? "bg-brand-navy/40 cursor-not-allowed"
+                      : "bg-brand-emerald hover:bg-brand-emerald-dark hover:shadow-card-hover",
+                  )}
                 >
-                  {submitted ? "Message sent ✓" : "Send message"}
+                  {submitting
+                    ? "Sending..."
+                    : submitted
+                      ? "Message sent ✓"
+                      : "Send message"}
                 </button>
 
                 <p className="text-xs text-neutral-muted">
@@ -135,7 +199,7 @@ export function ContactForm() {
             </form>
           </div>
 
-          {/* Other ways column — takes 2/5 on desktop */}
+          {/* Other ways column */}
           <div className="lg:col-span-2">
             <OtherWaysColumn />
           </div>

@@ -38,6 +38,27 @@ const config: Config = {
       maxWidth: {
         container: "1200px",
       },
+      keyframes: {
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-20px) rotate(5deg)" },
+        },
+        "float-medium": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-15px) rotate(-8deg)" },
+        },
+        "float-fast": {
+          "0%, 100%": { transform: "translateY(0) translateX(0) rotate(0deg)" },
+          "50%": {
+            transform: "translateY(-10px) translateX(5px) rotate(10deg)",
+          },
+        },
+      },
+      animation: {
+        "float-slow": "float-slow 7s ease-in-out infinite",
+        "float-medium": "float-medium 5s ease-in-out infinite",
+        "float-fast": "float-fast 4s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
