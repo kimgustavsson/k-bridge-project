@@ -124,5 +124,12 @@
     "contact": "Contact Us",
     "programs": "Programs & Pathways",
     "backToTop": "Back to Top"
+  },
+
+  "programsHero": {
+    "eyebrow": "Programs & Pathways",
+    "title": "Find the pathway that fits your goals.",
+    "subtitle": "Whether you're just starting to learn Korean or planning your path to a career here, K-BRIDGE walks each step of the journey with you.",
+    "imageAlt": "Korean university campus"
   }
 }

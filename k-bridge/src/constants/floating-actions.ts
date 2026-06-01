@@ -2,23 +2,23 @@ import { Phone, GraduationCap, type LucideIcon } from "lucide-react";
 
 export interface FloatingAction {
   id: string;
-  label: string;
+  /** Translation key under "floatingActions.{labelKey}" */
+  labelKey: string;
   icon: LucideIcon;
   href: string;
-  /** External link opens in new tab */
   external?: boolean;
 }
 
 export const FLOATING_ACTIONS: FloatingAction[] = [
   {
     id: "contact",
-    label: "Contact Us",
+    labelKey: "contact",
     icon: Phone,
     href: "/contact",
   },
   {
     id: "programs",
-    label: "Programs & Pathways",
+    labelKey: "programs",
     icon: GraduationCap,
     href: "/programs",
   },

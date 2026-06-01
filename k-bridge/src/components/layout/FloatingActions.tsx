@@ -1,24 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { ArrowUp, MessageCircle, X, type LucideIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { FLOATING_ACTIONS } from "@/constants/floating-actions";
 import { cn } from "@/lib/cn";
 
-/**
- * Floating Action Button (FAB) that expands upward to reveal quick navigation actions.
- *
- * Behavior:
- *   - Main button always visible (bottom-right)
- *   - Click main button to expand/collapse the action list
- *   - Clicking outside closes the menu
- *   - Pressing Escape closes the menu
- *   - "Scroll to top" appears as an extra action only after scrolling > 600px
- */
 export function FloatingActions() {
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const t = useTranslations("floatingActions");
 
   // Show "scroll to top" action once user has scrolled past 600px
   useEffect(() => {
@@ -30,7 +22,7 @@ export function FloatingActions() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking outside the FAB area
+  // Close menu when clicking outside
   useEffect(() => {
     if (!isOpen) return;
 
@@ -41,7 +33,6 @@ export function FloatingActions() {
       }
     };
 
-    // Delay slightly so the click that opened the menu doesn't immediately close it
     const timer = setTimeout(() => {
       document.addEventListener("click", handleClick);
     }, 0);
@@ -52,7 +43,7 @@ export function FloatingActions() {
     };
   }, [isOpen]);
 
-  // Close menu on Escape key
+  // Close menu on Escape
   useEffect(() => {
     if (!isOpen) return;
 
@@ -80,7 +71,7 @@ export function FloatingActions() {
       data-floating-actions
       className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 md:bottom-8 md:right-8"
     >
-      {/* Action items — visible only when isOpen */}
+      {/* Action items */}
       <div
         className={cn(
           "flex flex-col items-end gap-3 transition-all duration-300",
@@ -89,10 +80,9 @@ export function FloatingActions() {
             : "pointer-events-none opacity-0",
         )}
       >
-        {/* Scroll to top — conditional */}
         {showScrollTop && (
           <ActionItem
-            label="Back to Top"
+            label={t("backToTop")}
             icon={ArrowUp}
             onClick={scrollToTop}
             isOpen={isOpen}
@@ -100,11 +90,10 @@ export function FloatingActions() {
           />
         )}
 
-        {/* Configured actions */}
         {FLOATING_ACTIONS.map((action, idx) => (
           <ActionItem
             key={action.id}
-            label={action.label}
+            label={t(action.labelKey)}
             icon={action.icon}
             href={action.href}
             external={action.external}
@@ -115,8 +104,8 @@ export function FloatingActions() {
         ))}
       </div>
 
+      {/* Main button with tooltip */}
       <div className="relative flex items-center gap-3">
-        {/* Tooltip — only when closed */}
         <span
           className={cn(
             "rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-brand-navy shadow-card transition-all duration-300 md:text-sm",
@@ -125,21 +114,19 @@ export function FloatingActions() {
               : "translate-x-0 opacity-100",
           )}
         >
-          Need help?
+          {t("needHelp")}
         </span>
 
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-expanded={isOpen}
-          aria-label={
-            isOpen ? "Close quick actions menu" : "Open quick actions menu"
-          }
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           className={cn(
             "flex h-14 w-14 items-center justify-center rounded-full shadow-card transition-all duration-300 hover:shadow-card-hover",
             isOpen
               ? "rotate-90 bg-brand-navy text-white"
-              : "bg-orange-300 text-brand-navy hover:bg-brand-yellow-dark",
+              : "bg-brand-yellow text-brand-navy hover:bg-brand-yellow-dark",
           )}
         >
           {isOpen ? (
@@ -185,12 +172,9 @@ function ActionItem({
 
   const content = (
     <>
-      {/* Label pill */}
       <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-navy shadow-card whitespace-nowrap">
         {label}
       </span>
-
-      {/* Icon circle */}
       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand-navy shadow-card transition-colors hover:bg-brand-yellow">
         <Icon className="h-5 w-5" strokeWidth={2} />
       </span>

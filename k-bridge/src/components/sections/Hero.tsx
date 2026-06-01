@@ -25,14 +25,13 @@ export function Hero() {
 
         {/* Title block */}
         <div className="container-padded relative flex h-full items-center justify-center">
-          <div className="max-w-3xl text-center text-white">
-            <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+          <div className="max-w-4xl text-center text-white">
+            <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl break-keep">
               {t.rich("title", {
                 br: () => <br />,
               })}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/90 md:text-base">
-              {/* Replaced hardcoded description with translation key */}
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/90 md:text-base break-keep">
               {t("description")}
             </p>
           </div>
