@@ -28,8 +28,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "serif"],
+        sans: ["Pretendard", "var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Pretendard", "sans-serif"],
       },
       boxShadow: {
         card: "0 4px 20px rgba(27, 42, 78, 0.08)",

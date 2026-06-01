@@ -22,10 +22,10 @@ export interface JourneyStep {
 
 export interface ProgramItem {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
+  ctaLabelKey: string;
   image: string;
-  ctaLabel: string;
   href: string;
 }
 

@@ -12,7 +12,7 @@ export function Hero() {
       {/* Hero image with overlay text */}
       <div className="relative h-[420px] w-full overflow-hidden md:h-[520px] lg:h-[560px]">
         <Image
-          src="/images/hero-image.jpg"
+          src="/images/hero-main.jpg"
           // Replaced hardcoded text with translation key
           alt={t("imageAlt")}
           fill

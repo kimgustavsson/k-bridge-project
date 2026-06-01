@@ -55,6 +55,24 @@
     }
   },
 
+  "landingPrograms": {
+    "eyebrow": "Programs & Courses",
+    "title": "Find Your Path to Korea",
+    "intro": "End-to-end support designed to ensure your success throughout your educational journey in Korea",
+    "cards": {
+      "language": {
+        "title": "Korean Language Programs",
+        "description": "Start your journey with comprehensive Korean language programs",
+        "ctaLabel": "Explore Language Programs"
+      },
+      "degree": {
+        "title": "Find Your Perfect Program",
+        "description": "Explore degree programs and courses at top Korean universities",
+        "ctaLabel": "Browse Degree Programs"
+      }
+    }
+  },
+
   "footer": {
     "tagline": "The bridge between where you are and where you're going. End-to-end consulting for international students pursuing higher education in South Korea.",
     "newsletter": {
@@ -100,6 +118,7 @@
       "terms": "Terms of Service"
     }
   },
+
   "floatingActions": {
     "needHelp": "Need help?",
     "contact": "Contact Us",

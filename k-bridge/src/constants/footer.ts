@@ -1,34 +1,52 @@
 import { Instagram, Facebook, Youtube, Linkedin } from "lucide-react";
-import type { FooterLinkGroup, SocialLink } from "@/types";
+import type { LucideIcon } from "lucide-react";
+
+export interface FooterLink {
+  /** Translation key under "footer.groups.{group}.{linkKey}" */
+  labelKey: string;
+  href: string;
+}
+
+export interface FooterLinkGroup {
+  id: "programs" | "resources" | "company";
+  links: FooterLink[];
+}
 
 export const FOOTER_GROUPS: FooterLinkGroup[] = [
   {
-    title: "Programs",
+    id: "programs",
     links: [
-      { label: "Korean Language", href: "/programs" },
-      { label: "Undergraduate", href: "/programs" },
-      { label: "Graduate", href: "/programs" },
+      { labelKey: "language", href: "/programs" },
+      { labelKey: "undergraduate", href: "/programs" },
+      { labelKey: "graduate", href: "/programs" },
+      { labelKey: "exchange", href: "/programs" },
     ],
   },
   {
-    title: "Resources",
+    id: "resources",
     links: [
-      { label: "Programs & Pathways", href: "/programs" },
-      { label: "Scholarships", href: "/contact" },
-      { label: "Visa Information", href: "/contact" },
-      { label: "Student Life", href: "/contact" },
+      { labelKey: "application", href: "/resources/application" },
+      { labelKey: "scholarships", href: "/resources/scholarships" },
+      { labelKey: "visa", href: "/resources/visa" },
+      { labelKey: "studentLife", href: "/resources/student-life" },
     ],
   },
   {
-    title: "Company",
+    id: "company",
     links: [
-      { label: "About Us", href: "/about" },
-      { label: "Our Team", href: "/about" },
-      { label: "Partner Universities", href: "/about" },
-      { label: "Contact", href: "/contact" },
+      { labelKey: "about", href: "/about" },
+      { labelKey: "alumni", href: "/about" },
+      { labelKey: "partners", href: "/about" },
+      { labelKey: "contact", href: "/contact" },
     ],
   },
 ];
+
+export interface SocialLink {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+}
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: "Instagram", href: "https://instagram.com", icon: Instagram },
@@ -37,7 +55,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const CONTACT_INFO = {
-  phone: "+82 31-374-9790",
-  address:
-    "313–314, Cine Outlet, 198 Gyeonggi-daero, Osan-si, Gyeonggi-do, South Korea",
+  email: "hello@k-bridge.com",
+  phone: "+82 2 1234 5678",
+  address: "Seoul, South Korea",
 } as const;
