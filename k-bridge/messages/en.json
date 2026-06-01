@@ -5,9 +5,14 @@
     "about": "About Us",
     "contact": "Contact"
   },
+  "language": {
+    "korean": "한국어",
+    "english": "English",
+    "switchTo": "Switch to {lang}"
+  },
   "Hero": {
     "imageAlt": "Traditional Korean palace architecture",
-    "title": "Your Gateway to<br>Study in Korea",
+    "title": "Your Gateway to Study in Korea",
     "description": "Connect with Korea's leading universities through our comprehensive educational consulting services. We provide end-to-end support for international students pursuing their academic dreams in South Korea."
   },
   "AboutBridge": {

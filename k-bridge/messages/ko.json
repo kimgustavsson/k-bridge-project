@@ -5,6 +5,11 @@
     "about": "회사 소개",
     "contact": "문의하기"
   },
+  "language": {
+    "korean": "한국어",
+    "english": "English",
+    "switchTo": "{lang}로 전환"
+  },
   "Hero": {
     "imageAlt": "한국 전통 궁궐 건축물",
     "title": "신뢰할 수 있는 한국 유학 전문 K-Bridge",

@@ -1,11 +1,12 @@
-import type { NavItem } from "@/types";
+export interface NavItem {
+  /** Translation key in messages/*.json under "navigation" */
+  labelKey: string;
+  href: string;
+}
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Programs & Pathways", href: "/programs" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { labelKey: "home", href: "/" },
+  { labelKey: "programs", href: "/programs" },
+  { labelKey: "about", href: "/about" },
+  { labelKey: "contact", href: "/contact" },
 ];
-
-export const LOCALES = ["EN", "KR"] as const;
-export type Locale = (typeof LOCALES)[number];
