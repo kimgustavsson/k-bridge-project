@@ -1,6 +1,9 @@
-import { SUPPORT_ITEMS } from "@/constants/support";
+import { useTranslations } from "next-intl";
+import { SUPPORT_ITEMS, type SupportItem } from "@/constants/support";
 
 export function HowWeSupport() {
+  const t = useTranslations("howWeSupport");
+
   return (
     <section className="bg-neutral-bg py-20 md:py-28">
       <div className="container-padded">
@@ -8,23 +11,21 @@ export function HowWeSupport() {
         <div className="mx-auto flex items-center justify-center gap-4">
           <span className="h-0.5 w-10 bg-brand-yellow" />
           <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-navy">
-            How We Support You
+            {t("eyebrow")}
           </span>
         </div>
 
         {/* Title */}
         <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-5xl">
-          Studying abroad is a big step.
-          <br className="hidden md:block" /> You don&apos;t take it alone.
+          {t("title")}
         </h2>
 
         {/* Subtitle */}
         <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-neutral-muted md:text-lg">
-          Every international student arrives with the same question: &quot;will
-          I be okay here?&quot; Our job is to make sure the answer is yes.
+          {t("subtitle")}
         </p>
 
-        {/* Support cards — 2x2 grid on desktop, stacked on mobile */}
+        {/* Support cards */}
         <div className="mt-14 grid gap-5 md:mt-20 md:grid-cols-2 md:gap-6">
           {SUPPORT_ITEMS.map((item) => (
             <SupportCard key={item.id} item={item} />
@@ -38,10 +39,11 @@ export function HowWeSupport() {
 /* --------------------------- subcomponents --------------------------- */
 
 interface SupportCardProps {
-  item: (typeof SUPPORT_ITEMS)[number];
+  item: SupportItem;
 }
 
 function SupportCard({ item }: SupportCardProps) {
+  const t = useTranslations("howWeSupport.items");
   const Icon = item.icon;
 
   return (
@@ -54,7 +56,6 @@ function SupportCard({ item }: SupportCardProps) {
           </span>
         </div>
 
-        {/* Icon underneath number */}
         <div className="mt-3 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-yellow/15 text-brand-navy md:h-20 md:w-20">
           <Icon className="h-7 w-7 md:h-8 md:w-8" strokeWidth={1.75} />
         </div>
@@ -63,10 +64,10 @@ function SupportCard({ item }: SupportCardProps) {
       {/* Right: text */}
       <div className="flex-1 pt-1">
         <h3 className="font-display text-lg font-bold leading-snug text-brand-navy md:text-xl">
-          {item.title}
+          {t(`${item.translationKey}.title`)}
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-neutral-muted md:text-[15px]">
-          {item.description}
+          {t(`${item.translationKey}.description`)}
         </p>
       </div>
     </article>

@@ -131,5 +131,28 @@
     "title": "Find the pathway that fits your goals.",
     "subtitle": "Whether you're just starting to learn Korean or planning your path to a career here, K-BRIDGE walks each step of the journey with you.",
     "imageAlt": "Korean university campus"
+  },
+  "howWeSupport": {
+    "eyebrow": "How We Support You",
+    "title": "Studying abroad is a big step. You don't take it alone.",
+    "subtitle": "Every international student arrives with the same question: \"will I be okay here?\" Our job is to make sure the answer is yes.",
+    "items": {
+      "settling": {
+        "title": "Settling In Without the Stress",
+        "description": "Moving to a new country isn't easy — language barriers, paperwork, and unfamiliar systems can feel overwhelming. We help you handle the practical hurdles so you can focus on what you came here for."
+      },
+      "beyondClassroom": {
+        "title": "Beyond the Classroom",
+        "description": "Studying abroad is more than coursework. From daily life to mental well-being, our alumni advisors share what they wish they had known — and stay close through the ups and downs."
+      },
+      "oneTeam": {
+        "title": "One Team, One Plan",
+        "description": "You shouldn't have to chase information across schools, government offices, and agencies. We coordinate the moving parts — admissions, visa, housing, and career steps — so your plan stays in one place."
+      },
+      "healthSafety": {
+        "title": "Health & Safety, Covered",
+        "description": "Korea's national health insurance is required for international students, and it's also genuinely good. We help you enroll the right way so a hospital visit never becomes a financial worry."
+      }
+    }
   }
 }
