@@ -2,14 +2,17 @@
 
 import { useState, type FormEvent } from "react";
 import { Mail, Phone, MessageCircle } from "lucide-react";
+import { sendContactMessage } from "@/app/actions/send-contact";
 import { CONTACT_METHODS, MESSAGING_CHANNELS } from "@/constants/contact";
 import { cn } from "@/lib/cn";
 
 type ContactRole = "student" | "university" | "other";
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [role, setRole] = useState<ContactRole>("student");
   const [formStartTime] = useState(() => Date.now());
   const [formData, setFormData] = useState({
@@ -18,58 +21,49 @@ export function ContactForm() {
     phone: "",
     country: "",
     message: "",
-    // Honeypot field — never touched by real users
-    website: "",
+    website: "", // honeypot
   });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
 
-    // Bot detection: honeypot
-    if (formData.website) {
-      // Silently pretend success — don't tell bots they failed
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
-      return;
-    }
-
-    // Bot detection: submitted too fast (under 3 seconds = likely bot)
-    const elapsed = Date.now() - formStartTime;
-    if (elapsed < 3000) {
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
-      return;
-    }
-
-    setSubmitting(true);
-
-    // TODO: Hook into backend / email service here.
-    // For now, simulate async submission
-    await new Promise((resolve) => setTimeout(resolve, 800));
-
-    setSubmitted(true);
-    setSubmitting(false);
-    setTimeout(() => setSubmitted(false), 4000);
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      country: "",
-      message: "",
-      website: "",
+    const result = await sendContactMessage({
+      ...formData,
+      role,
+      formStartTime,
     });
+
+    if (result.success) {
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        country: "",
+        message: "",
+        website: "",
+      });
+      setTimeout(() => setStatus("idle"), 5000);
+    } else {
+      setStatus("error");
+      setErrorMessage(result.error || "Something went wrong.");
+    }
   };
 
   const handleChange = (field: keyof typeof formData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  const isSubmitting = status === "submitting";
+  const isSuccess = status === "success";
+  const isError = status === "error";
+
   return (
     <section className="bg-neutral-bg py-20 md:py-28">
       <div className="container-padded">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
-          {/* Form column */}
           <div className="lg:col-span-3">
             <FormHeader />
 
@@ -77,7 +71,7 @@ export function ContactForm() {
               onSubmit={handleSubmit}
               className="mt-8 rounded-2xl bg-white p-6 shadow-card md:p-8"
             >
-              {/* Honeypot — hidden from real users, only bots fill this */}
+              {/* Honeypot */}
               <div
                 className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0"
                 aria-hidden="true"
@@ -173,21 +167,30 @@ export function ContactForm() {
                 />
               </div>
 
+              {/* Error message */}
+              {isError && (
+                <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                  {errorMessage}
+                </div>
+              )}
+
               {/* Submit */}
               <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={isSubmitting}
                   className={cn(
                     "inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold text-white transition-all md:text-base",
-                    submitting
-                      ? "bg-brand-navy/40 cursor-not-allowed"
-                      : "bg-brand-emerald hover:bg-brand-emerald-dark hover:shadow-card-hover",
+                    isSubmitting
+                      ? "cursor-not-allowed bg-brand-navy/40"
+                      : isSuccess
+                        ? "bg-brand-emerald-dark"
+                        : "bg-brand-emerald hover:bg-brand-emerald-dark hover:shadow-card-hover",
                   )}
                 >
-                  {submitting
+                  {isSubmitting
                     ? "Sending..."
-                    : submitted
+                    : isSuccess
                       ? "Message sent ✓"
                       : "Send message"}
                 </button>
@@ -199,7 +202,6 @@ export function ContactForm() {
             </form>
           </div>
 
-          {/* Other ways column */}
           <div className="lg:col-span-2">
             <OtherWaysColumn />
           </div>
