@@ -55,8 +55,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const CONTACT_INFO = {
-  phone: "+82 2 1234 5678",
-  fax: "+82 031-374-9790",
+  phone: "+82 010-2265-5600",
+  Office: "+82 031-374-9790",
   address:
     "313–314, Cine Outlet, 198 Gyeonggi-daero, Osan-si, Gyeonggi-do, South Korea",
 } as const;
