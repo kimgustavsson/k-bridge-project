@@ -1,4 +1,7 @@
 {
+  "logo": {
+    "slogan": "Korea Study Abroad Consultants"
+  },
   "navigation": {
     "home": "Home",
     "programs": "Programs & Pathways",
@@ -25,7 +28,7 @@
     }
   },
 
-  "Hero": {
+  "hero": {
     "imageAlt": "Traditional Korean palace architecture",
     "title": "Your Gateway to Study in Korea",
     "description": "Connect with Korea's leading universities through our comprehensive educational consulting services. We provide end-to-end support for international students pursuing their academic dreams in South Korea."

@@ -14,10 +14,10 @@ const HERO_IMAGES = [
   "/images/student-graduation.jpg",
 ] as const;
 
-const SLIDE_DURATION_MS = 5000; // Each image stays visible for 5 seconds
+const SLIDE_DURATION_MS = 3000; // Each image stays visible for 3 seconds
 
 export function Hero() {
-  const t = useTranslations("Hero");
+  const t = useTranslations("hero");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-advance slideshow
@@ -38,7 +38,7 @@ export function Hero() {
           <div
             key={src}
             className={cn(
-              "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+              "absolute inset-0 transition-opacity duration-800 ease-in-out",
               idx === currentIndex ? "opacity-100" : "opacity-0",
             )}
             aria-hidden={idx !== currentIndex}
@@ -71,8 +71,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Slide indicators (dots) */}
-        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2 md:bottom-8">
+        {/* Slide indicators (dots) — right side, vertical */}
+        <div className="absolute right-4 top-1/2 z-10 flex -translate-y-1/2 flex-col gap-2 md:right-6">
           {HERO_IMAGES.map((_, idx) => (
             <button
               key={idx}
@@ -81,9 +81,9 @@ export function Hero() {
               aria-label={`Show image ${idx + 1}`}
               aria-current={idx === currentIndex ? "true" : "false"}
               className={cn(
-                "h-2 rounded-full transition-all duration-100",
+                "h-2 rounded-full transition-all duration-300",
                 idx === currentIndex
-                  ? "w-8 bg-white"
+                  ? "h-8 w-2 bg-white"
                   : "w-2 bg-white/50 hover:bg-white/75",
               )}
             />
