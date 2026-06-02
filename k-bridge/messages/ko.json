@@ -287,5 +287,51 @@
         "services": ["유학생 유치", "현지 교육 파트너십", "유학 컨설팅"]
       }
     }
+  },
+
+  "ourTeam": {
+    "eyebrow": "K-BRIDGE 전문가 팀",
+    "title": "여러분의 여정을 완성할 든든한 조력자들",
+    "subtitle": "한국, 베트남, 중국을 잇는 글로벌 정예 팀. 첫 상담을 나누는 순간부터 영광스러운 졸업의 날까지, 학생들의 모든 걸음을 변함없이 지지하고 동행합니다.",
+    "leadershipBadge": "★ 핵심 경영진",
+    "supportNote": "이 외에도 베트남과 중국 지사에는 학생들의 학업과 현지 적응을 헌신적으로 돕는 우수한 한국어·영어 강사진 및 전담 서포트 팀이 함께하고 있습니다.",
+    "members": {
+      "leeYongJoo": {
+        "name": "이용주",
+        "role": "대표이사 (CEO)",
+        "location": "한국 본사",
+        "bio": "아시아를 넘어 전 세계 학생들이 한국의 우수한 교육을 경험할 수 있도록 K-BRIDGE의 글로벌 비전을 이끌고 있습니다."
+      },
+      "kimKyungTae": {
+        "name": "김경태",
+        "role": "총괄 디렉터",
+        "location": "한국 본사"
+      },
+      "kimSungWon": {
+        "name": "김성원",
+        "role": "학생 관리 총괄 디렉터",
+        "location": "한국 본사"
+      },
+      "kimSeoHu": {
+        "name": "김서후",
+        "role": "대표 원장",
+        "location": "베트남 지사"
+      },
+      "phamQuangHung": {
+        "name": "팜 꽝 흥",
+        "role": "디렉터",
+        "location": "베트남 지사"
+      },
+      "kimGukIl": {
+        "name": "김국일",
+        "role": "중국 지사장",
+        "location": "중국 지사"
+      },
+      "kimHana": {
+        "name": "김하나",
+        "role": "매니저",
+        "location": "한국 본사"
+      }
+    }
   }
 }

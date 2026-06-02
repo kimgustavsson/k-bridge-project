@@ -1,9 +1,7 @@
 export interface TeamMember {
   id: string;
-  name: string;
-  role: string;
-  location: string;
-  bio?: string;
+  /** Translation key under "ourTeam.members.{translationKey}" */
+  translationKey: string;
   /** Whether this member is the featured leader (CEO) */
   isLead?: boolean;
 }
@@ -11,52 +9,31 @@ export interface TeamMember {
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "lee-yong-joo",
-    name: "Lee Yong-Joo",
-    role: "Chief Executive Officer",
-    location: "Korea Headquarters",
-    bio: "Leading K-BRIDGE's vision to make Korean education accessible to students across Asia and beyond.",
+    translationKey: "leeYongJoo",
     isLead: true,
   },
   {
     id: "kim-kyung-tae",
-    name: "Kim Kyung-Tae",
-    role: "General Director",
-    location: "Korea Headquarters",
+    translationKey: "kimKyungTae",
   },
   {
     id: "kim-sung-won",
-    name: "Kim Sung-Won",
-    role: "Director of Retention Strategy",
-    location: "Korea Headquarters",
+    translationKey: "kimSungWon",
   },
   {
     id: "kim-seo-hu",
-    name: "Kim Seo-Hu",
-    role: "Dean",
-    location: "Vietnam Region",
+    translationKey: "kimSeoHu",
   },
   {
     id: "pham-quang-hung",
-    name: "Pham Quang Hung",
-    role: "Director",
-    location: "Vietnam Region",
+    translationKey: "phamQuangHung",
   },
   {
     id: "kim-guk-il",
-    name: "Kim Guk-il",
-    role: "Branch Manager",
-    location: "China Region",
+    translationKey: "kimGukIl",
   },
   {
     id: "kim-hana",
-    name: "Kim Hana",
-    role: "Manager",
-    location: "Korea Headquarters",
+    translationKey: "kimHana",
   },
 ];
-
-/** Additional team members not individually featured */
-export const TEAM_SUPPORT = {
-  description:
-    "Plus a dedicated team of Korean language instructors, English instructors, and student support staff across our Vietnam and China offices.",
-};
