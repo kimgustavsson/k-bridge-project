@@ -57,39 +57,32 @@ export function AboutHero() {
             </div>
 
             {/* Trust credentials */}
+            {/* Trust credentials */}
             <div className="mt-6 border-t border-brand-navy/5 pt-5">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-yellow-dark">
                 {t("credentials.label")}
               </p>
               <p className="mt-2 text-xs leading-relaxed text-neutral-muted md:text-sm">
-                {t.rich("credentials.text", {
-                  one: () => (
-                    <span className="font-semibold text-brand-navy">
-                      {t("credentials.associationOne")}
-                    </span>
-                  ),
-                  two: () => (
-                    <span className="font-semibold text-brand-navy">
-                      {t("credentials.associationTwo")}
-                    </span>
-                  ),
+                {t("credentials.text", {
+                  one: t("credentials.associationOne"),
+                  two: t("credentials.associationTwo"),
                 })}
               </p>
             </div>
-          </div>
 
-          {/* CTA — body weight, navy on hover gives identity feel */}
-          <div className="mt-10">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 text-base font-semibold text-neutral-800 transition-colors hover:text-brand-yellow-dark"
-            >
-              <span>{t("cta")}</span>
-              <ArrowRight
-                className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                strokeWidth={2.5}
-              />
-            </Link>
+            {/* CTA — body weight, navy on hover gives identity feel */}
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 text-base font-semibold text-neutral-800 transition-colors hover:text-brand-yellow-dark"
+              >
+                <span>{t("cta")}</span>
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  strokeWidth={2.5}
+                />
+              </Link>
+            </div>
           </div>
         </div>
 

@@ -1,7 +1,9 @@
-import { OFFICES } from "@/constants/offices";
+import { useTranslations } from "next-intl";
+import { OFFICES, type Office } from "@/constants/offices";
 import { cn } from "@/lib/cn";
 
 export function GlobalPresence() {
+  const t = useTranslations("globalPresence");
   const hq = OFFICES.find((o) => o.isHeadquarters)!;
   const branches = OFFICES.filter((o) => !o.isHeadquarters);
 
@@ -12,25 +14,23 @@ export function GlobalPresence() {
         <div className="mx-auto flex items-center justify-center gap-4">
           <span className="h-0.5 w-10 bg-brand-yellow" />
           <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-navy">
-            Global Presence
+            {t("eyebrow")}
           </span>
         </div>
 
-        {/* Title */}
+        {/* Title — navy for hierarchy */}
         <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-4xl lg:text-5xl">
-          Our Headquarters & Branches
+          {t("title")}
         </h2>
 
-        {/* Subtitle */}
-        <p className="mx-auto mt-6 max-w-xl text-center text-base leading-relaxed text-neutral-muted md:text-lg">
-          Four locations across three countries, with one shared goal: to make
-          Korean education accessible from wherever you call home.
+        {/* Subtitle — body color */}
+        <p className="mx-auto mt-6 max-w-xl text-center text-base leading-relaxed text-neutral-900 md:text-lg break-keep">
+          {t("subtitle")}
         </p>
 
         {/* Offices */}
         <div className="mt-12 md:mt-16">
           <HQCard office={hq} />
-
           <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-6 md:gap-6 lg:grid-cols-3">
             {branches.map((office) => (
               <BranchCard key={office.id} office={office} />
@@ -38,20 +38,33 @@ export function GlobalPresence() {
           </div>
         </div>
 
-        {/* Network note — small, centered, restrained */}
+        {/* Network note */}
         <div className="mx-auto mt-16 max-w-3xl border-t border-brand-navy/10 pt-10 text-center md:mt-20 md:pt-12">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-yellow-dark">
-            Beyond our offices
+            {t("beyondOffices.label")}
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-neutral-muted md:text-base">
-            We also recruit and welcome students from{" "}
-            <span className="font-semibold text-brand-navy">Mongolia</span>,{" "}
-            <span className="font-semibold text-brand-navy">Indonesia</span>,{" "}
-            <span className="font-semibold text-brand-navy">Myanmar</span>,{" "}
-            <span className="font-semibold text-brand-navy">Uzbekistan</span>,{" "}
-            <span className="font-semibold text-brand-navy">Nepal</span>, and
-            partner with universities across China and Vietnam beyond our office
-            cities.
+          <p className="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base break-keep">
+            {t("beyondOffices.prefix")}{" "}
+            <span className="font-semibold text-brand-navy">
+              {t("beyondOffices.countries.mongolia")}
+            </span>
+            ,{" "}
+            <span className="font-semibold text-brand-navy">
+              {t("beyondOffices.countries.indonesia")}
+            </span>
+            ,{" "}
+            <span className="font-semibold text-brand-navy">
+              {t("beyondOffices.countries.myanmar")}
+            </span>
+            ,{" "}
+            <span className="font-semibold text-brand-navy">
+              {t("beyondOffices.countries.uzbekistan")}
+            </span>
+            ,{" "}
+            <span className="font-semibold text-brand-navy">
+              {t("beyondOffices.countries.nepal")}
+            </span>
+            {t("beyondOffices.suffix")}
           </p>
         </div>
       </div>
@@ -62,38 +75,45 @@ export function GlobalPresence() {
 /* --------------------------- subcomponents --------------------------- */
 
 interface OfficeCardProps {
-  office: (typeof OFFICES)[number];
+  office: Office;
 }
 
 function HQCard({ office }: OfficeCardProps) {
+  const t = useTranslations("globalPresence");
+  const ot = useTranslations(`globalPresence.offices.${office.translationKey}`);
+  const services = ot.raw("services") as string[];
+
   return (
     <article className="group relative overflow-hidden rounded-2xl border-2 border-brand-yellow bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover md:p-10">
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
         {/* Left: HQ badge + city */}
         <div className="flex-shrink-0 md:w-64">
           <span className="inline-block rounded-full bg-brand-yellow px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-navy">
-            ★ Headquarters
+            {t("hqBadge")}
           </span>
 
-          <h4 className="mt-4 font-display text-3xl font-bold text-brand-navy md:text-4xl">
-            {office.city}
+          {/* City + flag — navy for identity */}
+          <h4 className="mt-4 flex items-center gap-2 font-display text-3xl font-bold text-brand-navy md:text-4xl">
+            <span aria-hidden="true">{office.flag}</span>
+            <span>{ot("city")}</span>
           </h4>
-          <p className="text-base text-neutral-muted">{office.country}</p>
+          <p className="text-base text-neutral-muted">{ot("country")}</p>
 
           <p className="mt-4 text-xs font-bold uppercase tracking-[0.15em] text-brand-yellow-dark">
-            {office.role}
+            {ot("role")}
           </p>
         </div>
 
         {/* Right: description + services */}
         <div className="flex-1">
-          <p className="text-base leading-relaxed text-neutral-muted md:text-lg">
-            {office.description}
+          {/* Description — body color */}
+          <p className="text-base leading-relaxed text-neutral-700 md:text-lg">
+            {ot("description")}
           </p>
 
-          {office.services.length > 0 && (
+          {services.length > 0 && (
             <div className="mt-6 flex flex-wrap gap-2">
-              {office.services.map((service) => (
+              {services.map((service) => (
                 <span
                   key={service}
                   className="rounded-full border border-brand-navy/15 bg-brand-navy/5 px-3 py-1.5 text-xs font-semibold text-brand-navy"
@@ -110,32 +130,35 @@ function HQCard({ office }: OfficeCardProps) {
 }
 
 function BranchCard({ office }: OfficeCardProps) {
+  const ot = useTranslations(`globalPresence.offices.${office.translationKey}`);
+  const services = ot.raw("services") as string[];
+
   return (
     <article
       className={cn(
         "group rounded-2xl border border-orange-100 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover",
       )}
     >
-      {/* City + Country */}
-      <h4 className="font-display text-xl font-bold text-brand-navy md:text-2xl">
-        {office.city}
+      {/* City + flag — navy for hierarchy */}
+      <h4 className="flex items-center gap-2 font-display text-xl font-bold text-brand-navy md:text-2xl">
+        <span aria-hidden="true">{office.flag}</span>
+        <span>{ot("city")}</span>
       </h4>
-      <p className="text-sm text-neutral-muted">{office.country}</p>
+      <p className="text-sm text-neutral-muted">{ot("country")}</p>
 
       {/* Role */}
       <p className="mt-3 text-xs font-bold uppercase tracking-[0.15em] text-orange-700">
-        {office.role}
+        {ot("role")}
       </p>
 
-      {/* Description */}
-      <p className="mt-3 text-sm leading-relaxed text-neutral-muted">
-        {office.description}
+      {/* Description — body color */}
+      <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+        {ot("description")}
       </p>
 
-      {/* Service chips */}
-      {office.services.length > 0 && (
+      {services.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-1.5">
-          {office.services.map((service) => (
+          {services.map((service) => (
             <span
               key={service}
               className="rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-semibold text-orange-700"

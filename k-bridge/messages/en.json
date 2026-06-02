@@ -235,5 +235,59 @@
       "quote": "The hardest part of studying abroad isn't the studying. It's everything around it. That's what we're here for.",
       "attribution": "— K-BRIDGE founding principle"
     }
+  },
+
+  "globalPresence": {
+    "eyebrow": "Global Presence",
+    "title": "Our Headquarters & Branches",
+    "subtitle": "Four locations across three countries, with one shared goal: to make Korean education accessible from wherever you call home.",
+    "hqBadge": "★ Headquarters",
+    "beyondOffices": {
+      "label": "Beyond our offices",
+      "prefix": "We also recruit and welcome students from",
+      "suffix": ", and partner with universities across China and Vietnam beyond our office cities.",
+      "countries": {
+        "mongolia": "Mongolia",
+        "indonesia": "Indonesia",
+        "myanmar": "Myanmar",
+        "uzbekistan": "Uzbekistan",
+        "nepal": "Nepal"
+      }
+    },
+    "offices": {
+      "osan": {
+        "city": "Osan",
+        "country": "South Korea",
+        "role": "Headquarters",
+        "description": "Where every student journey lands. Our Korean team coordinates university admissions, visa support, housing arrangements, and ongoing student care from arrival to graduation.",
+        "services": [
+          "University Admissions",
+          "Visa & Immigration",
+          "Housing Support",
+          "Student Care"
+        ]
+      },
+      "hanoi": {
+        "city": "Hanoi",
+        "country": "Vietnam",
+        "role": "Branch & Language Institute",
+        "description": "Our flagship Vietnam office runs a direct Korean language program — students prepare for Korean academic life before they ever leave home.",
+        "services": ["Korean Language", "Cultural Prep", "Recruitment"]
+      },
+      "haiDuong": {
+        "city": "Hai Duong",
+        "country": "Vietnam",
+        "role": "Branch & Language Institute",
+        "description": "A second Vietnamese hub focused on language training and cultural adaptation, ensuring students arrive in Korea ready to thrive.",
+        "services": ["Korean Language", "Cultural Prep", "Recruitment"]
+      },
+      "qingdao": {
+        "city": "Qingdao",
+        "country": "China",
+        "role": "Branch Office",
+        "description": "Our Qingdao team works directly with Chinese students and partners with local education institutions to expand our network across China.",
+        "services": ["Recruitment", "Partnership", "Student Support"]
+      }
+    }
   }
 }
