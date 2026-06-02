@@ -45,7 +45,7 @@ export async function subscribeToNewsletter(
 
     const { error } = await resend.emails.send({
       // Replace with verified domain once available
-      from: "K-BRIDGE Newsletter <onboarding@resend.dev>",
+      from: "K-BRIDGE Newsletter <newsletter@kbridgeedu.com>",
       to: [toEmail],
       replyTo: data.email,
       subject: `[Newsletter] New subscriber: ${data.email}`,

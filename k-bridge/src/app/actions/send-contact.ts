@@ -56,7 +56,7 @@ export async function sendContactMessage(
     }
 
     const { error } = await resend.emails.send({
-      from: "K-BRIDGE Contact <onboarding@resend.dev>",
+      from: "K-BRIDGE Contact <contact@kbridgeedu.com>",
       to: [toEmail],
       replyTo: data.email,
       subject: `[${ROLE_LABELS[data.role]}] New contact from ${data.name}`,
