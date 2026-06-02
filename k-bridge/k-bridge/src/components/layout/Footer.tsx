@@ -46,10 +46,10 @@ export function Footer() {
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 flex-shrink-0 text-brand-yellow" />
               <a
-                href={`mailto:${CONTACT_INFO.fax}`}
+                href={`mailto:${CONTACT_INFO.phone}`}
                 className="hover:text-white"
               >
-                {CONTACT_INFO.fax}
+                {CONTACT_INFO.phone}
               </a>
             </li>
             <li className="flex items-center gap-3">
