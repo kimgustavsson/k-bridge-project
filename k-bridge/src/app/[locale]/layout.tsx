@@ -24,19 +24,20 @@ export const metadata: Metadata = {
 
   title: {
     template: "%s | K-BRIDGE",
-    default: "K-BRIDGE | Your Gateway to Study in Korea",
+    default:
+      "K-BRIDGE | 성공적인 한국 유학의 시작과 끝, 케이브릿지와 함께 하세요.",
   },
 
   description:
-    "Connect with Korea's leading universities through our comprehensive educational consulting services. End-to-end support for international students.",
+    "성공적인 한국 유학의 첫걸음, K-BRIDGE가 함께합니다. 어학연수부터 명문대 학·석사 진학까지, 전 세계 유학생을 위한 맞춤형 컨설팅과 밀착 케어 서비스를 제공합니다.",
 
   keywords: [
-    "study in Korea",
+    "외국인 한국 유학",
     "Korean universities",
     "international students",
-    "study abroad",
-    "Korean language",
-    "한국 유학",
+    "유학 컨설팅",
+    "한국어 공부",
+    "유학원",
     "어학연수",
     "한국 대학 진학",
   ],
@@ -50,9 +51,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "K-BRIDGE | Your Gateway to Study in Korea",
+    title: "K-BRIDGE | 성공적인 한국 유학의 시작",
     description:
-      "Connect with Korea's leading universities through our comprehensive educational consulting services.",
+      "성공적인 한국 유학의 첫걸음, K-BRIDGE가 함께합니다. 어학연수부터 명문대 학·석사 진학까지, 전 세계 유학생을 위한 맞춤형 컨설팅과 밀착 케어 서비스를 제공합니다.",
     url: "/",
     siteName: "K-BRIDGE",
     images: [
