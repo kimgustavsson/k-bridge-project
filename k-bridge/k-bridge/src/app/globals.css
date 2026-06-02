@@ -1,0 +1,39 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-brand-navy antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+  }
+
+  /* Focus visible style for keyboard users */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-yellow;
+  }
+}
+
+@layer components {
+  .container-padded {
+    @apply mx-auto max-w-container px-6 lg:px-8;
+  }
+
+  /* Dashed curve animation for the bridge arc */
+  .bridge-arc-path {
+    stroke-dasharray: 6 8;
+    animation: arc-flow 30s linear infinite;
+  }
+
+  @keyframes arc-flow {
+    to {
+      stroke-dashoffset: -1000;
+    }
+  }
+}
