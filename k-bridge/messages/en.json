@@ -200,5 +200,40 @@
         "highlights": ["Partner university programs", "Great for CV / resume"]
       }
     }
+  },
+
+  "aboutHero": {
+    "eyebrow": "About K-BRIDGE",
+    "title": "Empowering International Students.",
+    "history": {
+      "paragraph1": "Founded in 2014, K-BRIDGE opened its first language institute in Hanoi in 2016 and expanded to a larger campus in 2019. We've been growing steadily ever since.",
+      "paragraph2": "Today, we partner with universities across Korea to support international students from their first inquiry to graduation."
+    },
+    "stats": {
+      "founded": {
+        "number": "Since 2014",
+        "label": "Building bridges"
+      },
+      "offices": {
+        "number": "4",
+        "label": "Offices abroad"
+      },
+      "associations": {
+        "number": "2",
+        "label": "Member associations"
+      }
+    },
+    "credentials": {
+      "label": "Officially recognized by",
+      "associationOne": "Bareun International Student Recruitment Support Association",
+      "associationTwo": "Korean Language Education Council",
+      "text": "Member of the {one} and partner of the {two}"
+    },
+    "cta": "Talk to our team",
+    "imageAlt": "K-BRIDGE team and alumni",
+    "principle": {
+      "quote": "The hardest part of studying abroad isn't the studying. It's everything around it. That's what we're here for.",
+      "attribution": "— K-BRIDGE founding principle"
+    }
   }
 }
