@@ -1,69 +1,78 @@
-import { Mail, Phone, MessageCircle, type LucideIcon } from "lucide-react";
+import { Mail, Phone, type LucideIcon } from "lucide-react";
 
 export interface ContactMethod {
   id: string;
   icon: LucideIcon;
-  label: string;
+  /** Translation key under "contactForm.methods.{translationKey}" */
+  translationKey: string;
   value: string;
   href?: string;
-  hint?: string;
 }
 
 export const CONTACT_METHODS: ContactMethod[] = [
   {
     id: "email",
     icon: Mail,
-    label: "Email",
+    translationKey: "email",
     value: "temporary@email.com",
     href: "mailto:temporary@email.com",
-    hint: "We reply within 1–2 business days.",
   },
   {
     id: "phone",
     icon: Phone,
-    label: "Phone",
+    translationKey: "phone",
     value: "+82 31-XXX-XXXX",
     href: "tel:+8231XXXXXXX",
-    hint: "Mon–Fri, 9:00–18:00 KST",
   },
 ];
 
 export interface MessagingChannel {
   id: string;
+  /** Translation key under "contactForm.messaging.channels.{translationKey}" */
+  translationKey: string;
+  /** Name and handle stay language-agnostic */
   name: string;
-  region: string;
   handle: string;
 }
 
 export const MESSAGING_CHANNELS: MessagingChannel[] = [
-  { id: "KakaoTalk", name: "KakaoTalk", region: "Korea", handle: "@kbridge" },
-  { id: "WhatsApp", name: "WhatsApp", region: "Global", handle: "+84 XXX XXX XXX" },
-  { id: "WeChat", name: "WeChat", region: "China", handle: "kbridge_official" },
+  {
+    id: "KakaoTalk",
+    translationKey: "kakaoTalk",
+    name: "KakaoTalk",
+    handle: "@kbridge",
+  },
+  {
+    id: "WhatsApp",
+    translationKey: "whatsApp",
+    name: "WhatsApp",
+    handle: "+84 XXX XXX XXX",
+  },
+  {
+    id: "WeChat",
+    translationKey: "weChat",
+    name: "WeChat",
+    handle: "kbridge_official",
+  },
 ];
 
 export interface FAQItem {
   id: string;
-  question: string;
-  answer: string;
+  /** Translation key under "contactFaq.items.{translationKey}" */
+  translationKey: string;
 }
 
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "consultation-cost",
-    question: "Is the initial consultation free?",
-    answer:
-      "Yes — the first consultation with one of our advisors is completely free. We'll talk through your background, goals, and timeline, then help you understand which programs and pathways might fit you best. No payment, no commitment.",
+    translationKey: "consultationCost",
   },
   {
     id: "languages",
-    question: "What languages can I communicate in?",
-    answer:
-      "Our team can support you in English, Korean, Vietnamese, and Chinese. When you submit the form, just let us know your preferred language and we'll match you with the right advisor.",
+    translationKey: "languages",
   },
   {
     id: "university-partnerships",
-    question: "I represent a university — how do we partner with K-BRIDGE?",
-    answer:
-      "We're always open to new institutional partnerships. Use the form on this page and select 'University or institution' to tell us a bit about your institution and the kind of collaboration you have in mind. Our partnerships team will respond directly.",
+    translationKey: "universityPartnerships",
   },
 ];

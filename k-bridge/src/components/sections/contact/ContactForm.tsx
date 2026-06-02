@@ -1,14 +1,21 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { sendContactMessage } from "@/app/actions/send-contact";
-import { CONTACT_METHODS, MESSAGING_CHANNELS } from "@/constants/contact";
+import {
+  CONTACT_METHODS,
+  MESSAGING_CHANNELS,
+  type ContactMethod,
+  type MessagingChannel,
+} from "@/constants/contact";
 import { cn } from "@/lib/cn";
 
 type ContactRole = "student" | "university" | "other";
 
 export function ContactForm() {
+  const t = useTranslations("contactForm");
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -21,7 +28,7 @@ export function ContactForm() {
     phone: "",
     country: "",
     message: "",
-    website: "", // honeypot
+    website: "",
   });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -48,7 +55,7 @@ export function ContactForm() {
       setTimeout(() => setStatus("idle"), 5000);
     } else {
       setStatus("error");
-      setErrorMessage(result.error || "Something went wrong.");
+      setErrorMessage(result.error || t("submit.genericError"));
     }
   };
 
@@ -93,24 +100,24 @@ export function ContactForm() {
               {/* Role selector */}
               <fieldset>
                 <legend className="text-sm font-semibold text-brand-navy">
-                  I&apos;m reaching out as a...
+                  {t("roleSelector.legend")}
                 </legend>
                 <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
                   <RoleOption
                     value="student"
-                    label="Student or Family"
+                    label={t("roleSelector.options.student")}
                     checked={role === "student"}
                     onChange={setRole}
                   />
                   <RoleOption
                     value="university"
-                    label="University / Institution"
+                    label={t("roleSelector.options.university")}
                     checked={role === "university"}
                     onChange={setRole}
                   />
                   <RoleOption
                     value="other"
-                    label="Other Partner"
+                    label={t("roleSelector.options.other")}
                     checked={role === "other"}
                     onChange={setRole}
                   />
@@ -120,14 +127,14 @@ export function ContactForm() {
               {/* Name + Email */}
               <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <Field
-                  label="Name"
+                  label={t("fields.name")}
                   type="text"
                   value={formData.name}
                   onChange={(v) => handleChange("name", v)}
                   required
                 />
                 <Field
-                  label="Email"
+                  label={t("fields.email")}
                   type="email"
                   value={formData.email}
                   onChange={(v) => handleChange("email", v)}
@@ -138,32 +145,36 @@ export function ContactForm() {
               {/* Phone + Country */}
               <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <Field
-                  label="Phone"
+                  label={t("fields.phone")}
                   type="tel"
                   value={formData.phone}
                   onChange={(v) => handleChange("phone", v)}
                   optional
+                  optionalLabel={t("fields.optional")}
                 />
                 <Field
-                  label="Country"
+                  label={t("fields.country")}
                   type="text"
                   value={formData.country}
                   onChange={(v) => handleChange("country", v)}
                   optional
+                  optionalLabel={t("fields.optional")}
                 />
               </div>
 
               {/* Message */}
               <div className="mt-4">
-                <FieldLabel htmlFor="contact-message">Message</FieldLabel>
+                <FieldLabel htmlFor="contact-message">
+                  {t("fields.message")}
+                </FieldLabel>
                 <textarea
                   id="contact-message"
                   required
                   rows={5}
                   value={formData.message}
                   onChange={(e) => handleChange("message", e.target.value)}
-                  placeholder="Tell us a little about your situation or question..."
-                  className="mt-1.5 w-full rounded-lg border border-brand-navy/15 bg-white px-4 py-3 text-sm text-brand-navy placeholder:text-neutral-muted/60 focus:border-brand-emerald focus:outline-none focus:ring-2 focus:ring-brand-emerald/20"
+                  placeholder={t("fields.messagePlaceholder")}
+                  className="mt-1.5 w-full rounded-lg border border-brand-navy/15 bg-white px-4 py-3 text-sm text-neutral-800 placeholder:text-neutral-muted/60 focus:border-brand-emerald focus:outline-none focus:ring-2 focus:ring-brand-emerald/20"
                 />
               </div>
 
@@ -189,14 +200,14 @@ export function ContactForm() {
                   )}
                 >
                   {isSubmitting
-                    ? "Sending..."
+                    ? t("submit.submitting")
                     : isSuccess
-                      ? "Message sent ✓"
-                      : "Send message"}
+                      ? t("submit.success")
+                      : t("submit.idle")}
                 </button>
 
                 <p className="text-xs text-neutral-muted">
-                  We&apos;ll get back to you within 1–3 business days.
+                  {t("submit.responseTime")}
                 </p>
               </div>
             </form>
@@ -214,27 +225,28 @@ export function ContactForm() {
 /* --------------------------- subcomponents --------------------------- */
 
 function FormHeader() {
+  const t = useTranslations("contactForm.formHeader");
   return (
     <div>
       <h2 className="font-display text-2xl font-bold text-brand-navy md:text-3xl">
-        Send us a message
+        {t("title")}
       </h2>
-      <p className="mt-2 text-sm text-neutral-muted md:text-base">
-        Fill out the form and we&apos;ll route your message to the right person
-        on our team.
+      <p className="mt-2 text-sm text-neutral-700 md:text-base break-keep">
+        {t("subtitle")}
       </p>
     </div>
   );
 }
 
 function OtherWaysColumn() {
+  const t = useTranslations("contactForm");
   return (
     <div>
       <h2 className="font-display text-2xl font-bold text-brand-navy md:text-3xl">
-        Or reach us another way
+        {t("otherWays.title")}
       </h2>
-      <p className="mt-2 text-sm text-neutral-muted md:text-base">
-        Prefer email or messaging? Pick whichever works best for you.
+      <p className="mt-2 text-sm text-neutral-700 md:text-base break-keep">
+        {t("otherWays.subtitle")}
       </p>
 
       {/* Direct contact methods */}
@@ -252,31 +264,16 @@ function OtherWaysColumn() {
             strokeWidth={2}
           />
           <h3 className="text-sm font-bold uppercase tracking-wider text-brand-emerald-dark">
-            Chat with us
+            {t("messaging.title")}
           </h3>
         </div>
-        <p className="mt-2 text-xs text-neutral-muted md:text-sm">
-          Find us on your favorite messaging app — we respond fastest here.
+        <p className="mt-2 text-xs text-neutral-700 md:text-sm break-keep">
+          {t("messaging.subtitle")}
         </p>
 
         <ul className="mt-4 space-y-2">
           {MESSAGING_CHANNELS.map((channel) => (
-            <li
-              key={channel.id}
-              className="flex items-center justify-between rounded-lg bg-white px-3 py-2.5"
-            >
-              <div>
-                <p className="text-sm font-bold text-brand-navy">
-                  {channel.name}
-                </p>
-                <p className="text-[11px] text-neutral-muted">
-                  Best for {channel.region}
-                </p>
-              </div>
-              <p className="font-mono text-xs text-brand-navy">
-                {channel.handle}
-              </p>
-            </li>
+            <MessagingChannelItem key={channel.id} channel={channel} />
           ))}
         </ul>
       </div>
@@ -284,12 +281,36 @@ function OtherWaysColumn() {
   );
 }
 
+interface MessagingChannelItemProps {
+  channel: MessagingChannel;
+}
+
+function MessagingChannelItem({ channel }: MessagingChannelItemProps) {
+  const t = useTranslations("contactForm.messaging");
+  const region = t(`channels.${channel.translationKey}.region`);
+
+  return (
+    <li className="flex items-center justify-between rounded-lg bg-white px-3 py-2.5">
+      <div>
+        <p className="text-sm font-bold text-brand-navy">{channel.name}</p>
+        <p className="text-[11px] text-neutral-muted">
+          {t("bestFor", { region })}
+        </p>
+      </div>
+      <p className="font-mono text-xs text-brand-navy">{channel.handle}</p>
+    </li>
+  );
+}
+
 interface ContactMethodCardProps {
-  method: (typeof CONTACT_METHODS)[number];
+  method: ContactMethod;
 }
 
 function ContactMethodCard({ method }: ContactMethodCardProps) {
+  const t = useTranslations(`contactForm.methods.${method.translationKey}`);
   const Icon = method.icon;
+  const hasHint = t.has("hint");
+
   const content = (
     <>
       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-brand-yellow/20">
@@ -297,13 +318,13 @@ function ContactMethodCard({ method }: ContactMethodCardProps) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-xs font-bold uppercase tracking-wider text-neutral-muted">
-          {method.label}
+          {t("label")}
         </p>
         <p className="truncate text-sm font-semibold text-brand-navy md:text-base">
           {method.value}
         </p>
-        {method.hint && (
-          <p className="mt-0.5 text-[11px] text-neutral-muted">{method.hint}</p>
+        {hasHint && (
+          <p className="mt-0.5 text-[11px] text-neutral-muted">{t("hint")}</p>
         )}
       </div>
     </>
@@ -364,6 +385,7 @@ interface FieldProps {
   onChange: (value: string) => void;
   required?: boolean;
   optional?: boolean;
+  optionalLabel?: string;
 }
 
 function Field({
@@ -373,12 +395,18 @@ function Field({
   onChange,
   required,
   optional,
+  optionalLabel,
 }: FieldProps) {
-  const id = `contact-${label.toLowerCase().replace(/\s+/g, "-")}`;
+  // Use a stable id — strip non-alphanumerics
+  const id = `contact-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
   return (
     <div>
-      <FieldLabel htmlFor={id} optional={optional}>
+      <FieldLabel
+        htmlFor={id}
+        optional={optional}
+        optionalLabel={optionalLabel}
+      >
         {label}
       </FieldLabel>
       <input
@@ -387,7 +415,7 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1.5 w-full rounded-lg border border-brand-navy/15 bg-white px-4 py-3 text-sm text-brand-navy placeholder:text-neutral-muted/60 focus:border-brand-emerald focus:outline-none focus:ring-2 focus:ring-brand-emerald/20"
+        className="mt-1.5 w-full rounded-lg border border-brand-navy/15 bg-white px-4 py-3 text-sm text-neutral-800 placeholder:text-neutral-muted/60 focus:border-brand-emerald focus:outline-none focus:ring-2 focus:ring-brand-emerald/20"
       />
     </div>
   );
@@ -396,16 +424,22 @@ function Field({
 interface FieldLabelProps {
   htmlFor: string;
   optional?: boolean;
+  optionalLabel?: string;
   children: React.ReactNode;
 }
 
-function FieldLabel({ htmlFor, optional, children }: FieldLabelProps) {
+function FieldLabel({
+  htmlFor,
+  optional,
+  optionalLabel,
+  children,
+}: FieldLabelProps) {
   return (
     <label htmlFor={htmlFor} className="flex items-center gap-2">
       <span className="text-sm font-semibold text-brand-navy">{children}</span>
-      {optional && (
+      {optional && optionalLabel && (
         <span className="text-xs font-normal text-neutral-muted">
-          (optional)
+          {optionalLabel}
         </span>
       )}
     </label>

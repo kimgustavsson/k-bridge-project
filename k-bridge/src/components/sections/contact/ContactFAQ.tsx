@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import { FAQ_ITEMS } from "@/constants/contact";
+import { useTranslations } from "next-intl";
+import { FAQ_ITEMS, type FAQItem } from "@/constants/contact";
 import { cn } from "@/lib/cn";
 
 export function ContactFAQ() {
+  const t = useTranslations("contactFaq");
   const [openId, setOpenId] = useState<string | null>(FAQ_ITEMS[0]?.id ?? null);
 
   const toggle = (id: string) => {
@@ -20,20 +22,20 @@ export function ContactFAQ() {
           <div className="flex items-center justify-center gap-4">
             <span className="h-0.5 w-10 bg-brand-yellow" />
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-navy">
-              Frequently Asked
+              {t("eyebrow")}
             </span>
             <span className="h-0.5 w-10 bg-brand-yellow" />
           </div>
 
-          {/* Title */}
+          {/* Title — navy for hierarchy */}
           <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-4xl">
-            Quick answers
+            {t("title")}
           </h2>
 
           {/* FAQ list */}
           <div className="mt-12 space-y-3 md:mt-16">
             {FAQ_ITEMS.map((item) => (
-              <FAQItem
+              <FAQAccordion
                 key={item.id}
                 item={item}
                 isOpen={openId === item.id}
@@ -42,16 +44,16 @@ export function ContactFAQ() {
             ))}
           </div>
 
-          {/* Bottom note */}
-          <p className="mt-12 text-center text-sm text-neutral-muted md:text-base">
-            Have a question that&apos;s not here?{" "}
+          {/* Bottom note — JSX direct composition to avoid t.rich issues */}
+          <p className="mt-12 text-center text-sm text-neutral-700 md:text-base break-keep">
+            {t("bottomNote.prefix")}{" "}
             <a
               href="#contact-form"
               className="font-semibold text-brand-emerald-dark hover:underline"
             >
-              Send us a message
+              {t("bottomNote.linkText")}
             </a>
-            {" "}— we&apos;re happy to help.
+            {t("bottomNote.suffix")}
           </p>
         </div>
       </div>
@@ -61,13 +63,15 @@ export function ContactFAQ() {
 
 /* --------------------------- subcomponents --------------------------- */
 
-interface FAQItemProps {
-  item: (typeof FAQ_ITEMS)[number];
+interface FAQAccordionProps {
+  item: FAQItem;
   isOpen: boolean;
   onToggle: () => void;
 }
 
-function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
+function FAQAccordion({ item, isOpen, onToggle }: FAQAccordionProps) {
+  const t = useTranslations(`contactFaq.items.${item.translationKey}`);
+
   return (
     <div
       className={cn(
@@ -83,8 +87,9 @@ function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left md:px-6 md:py-5"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-base font-bold text-brand-navy md:text-lg">
-          {item.question}
+        {/* Question — navy for strong emphasis */}
+        <span className="font-display text-base font-bold text-brand-navy md:text-lg break-keep">
+          {t("question")}
         </span>
         <span
           className={cn(
@@ -106,14 +111,13 @@ function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
       <div
         className={cn(
           "grid transition-all duration-300 ease-in-out",
-          isOpen
-            ? "grid-rows-[1fr] opacity-100"
-            : "grid-rows-[0fr] opacity-0",
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
         )}
       >
         <div className="overflow-hidden">
-          <p className="px-5 pb-5 text-sm leading-relaxed text-neutral-muted md:px-6 md:pb-6 md:text-base">
-            {item.answer}
+          {/* Answer — body color */}
+          <p className="px-5 pb-5 text-sm leading-relaxed text-neutral-700 md:px-6 md:pb-6 md:text-base break-keep">
+            {t("answer")}
           </p>
         </div>
       </div>
