@@ -15,13 +15,13 @@ export function HowWeSupport() {
           </span>
         </div>
 
-        {/* Title */}
-        <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-5xl">
+        {/* Title — navy for hierarchy */}
+        <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-5xl break-keep">
           {t("title")}
         </h2>
 
-        {/* Subtitle */}
-        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-neutral-muted md:text-lg">
+        {/* Subtitle — black for readability */}
+        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-neutral-800 md:text-lg break-keep">
           {t("subtitle")}
         </p>
 
@@ -63,10 +63,12 @@ function SupportCard({ item }: SupportCardProps) {
 
       {/* Right: text */}
       <div className="flex-1 pt-1">
-        <h3 className="font-display text-lg font-bold leading-snug text-brand-navy md:text-xl">
+        {/* Title — navy for hierarchy */}
+        <h3 className="font-display text-lg font-bold leading-snug text-brand-navy md:text-xl break-keep">
           {t(`${item.translationKey}.title`)}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-neutral-muted md:text-[15px]">
+        {/* Description — black for readability */}
+        <p className="mt-3 text-sm leading-relaxed text-neutral-800 md:text-[15px] break-keep">
           {t(`${item.translationKey}.description`)}
         </p>
       </div>

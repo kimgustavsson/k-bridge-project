@@ -11,16 +11,19 @@ export function ProgramTracks() {
       <div className="container-padded">
         <div className="mx-auto flex items-center justify-center gap-4">
           <span className="h-0.5 w-10 bg-brand-yellow" />
+          {/* Eyebrow — navy for identity */}
           <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-navy">
             {t("eyebrow")}
           </span>
         </div>
 
-        <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-5xl">
+        {/* Title — navy for hierarchy */}
+        <h2 className="mt-6 text-center font-display text-3xl font-bold leading-tight text-brand-navy md:text-5xl break-keep">
           {t("title")}
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-neutral-muted md:text-lg">
+        {/* Subtitle — black for readability */}
+        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-neutral-800 md:text-lg break-keep">
           {t("subtitle")}
         </p>
 
@@ -49,44 +52,53 @@ function TrackRow({ track }: TrackRowProps) {
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-50 hover:shadow-card-hover sm:flex-row">
+      {/* Left: icon block */}
       <div className="flex flex-shrink-0 items-center justify-center bg-orange-50 px-6 py-8 transition-colors duration-300 group-hover:bg-orange-200 sm:w-44 sm:py-0">
         <div className="flex flex-col items-center gap-3 text-center">
           <Icon
             className="h-10 w-10 text-brand-navy transition-colors md:h-12 md:w-12"
             strokeWidth={1.5}
           />
+          {/* Index — navy with opacity for subtle hierarchy */}
           <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-brand-navy/70">
             {track.index}
           </span>
         </div>
       </div>
 
+      {/* Right: content */}
       <div className="flex flex-1 flex-col p-6 md:p-7">
         <div className="flex items-start justify-between gap-4">
           <div>
+            {/* Category — yellow-dark accent label */}
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow-dark transition-colors group-hover:text-brand-navy">
               {tt("category")}
             </p>
-            <h3 className="mt-1.5 font-display text-xl font-bold text-brand-navy md:text-2xl">
+            {/* Title — navy for hierarchy */}
+            <h3 className="mt-1.5 font-display text-xl font-bold text-brand-navy md:text-2xl break-keep">
               {tt("title")}
             </h3>
           </div>
 
+          {/* Visa badge — navy */}
           <span className="flex-shrink-0 rounded-full border border-brand-navy/15 bg-brand-navy/5 px-3 py-1 text-xs font-bold tracking-wide text-brand-navy transition-colors group-hover:border-brand-navy/30 group-hover:bg-brand-navy group-hover:text-white">
             {track.visa}
           </span>
         </div>
 
-        <p className="mt-3 text-sm leading-relaxed text-neutral-muted transition-colors group-hover:text-brand-navy/80 md:text-[15px]">
+        {/* Description — black for readability */}
+        <p className="mt-3 text-sm leading-relaxed text-neutral-800 transition-colors group-hover:text-brand-navy md:text-[15px] break-keep">
           {tt("description")}
         </p>
 
         <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-2 text-sm">
             <div className="flex items-center gap-2">
+              {/* Duration label — gray for supporting */}
               <span className="text-xs font-semibold uppercase tracking-wider text-neutral-muted transition-colors group-hover:text-brand-navy/60">
                 {t("labels.duration")}
               </span>
+              {/* Duration value — navy for key data */}
               <span className="font-semibold text-brand-navy">
                 {tt("duration")}
               </span>
@@ -95,7 +107,7 @@ function TrackRow({ track }: TrackRowProps) {
               {highlights.map((highlight) => (
                 <li
                   key={highlight}
-                  className="flex items-center gap-1.5 text-xs text-neutral-muted transition-colors group-hover:text-brand-navy/80 md:text-sm"
+                  className="flex items-center gap-1.5 text-xs text-neutral-800 transition-colors group-hover:text-brand-navy md:text-sm"
                 >
                   <Check
                     className="h-3.5 w-3.5 text-brand-yellow-dark transition-colors group-hover:text-brand-navy"
@@ -107,6 +119,7 @@ function TrackRow({ track }: TrackRowProps) {
             </ul>
           </div>
 
+          {/* CTA — navy with yellow hover */}
           <Link
             href="/contact"
             className="inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-navy transition-colors hover:text-brand-yellow-dark group-hover:text-brand-navy sm:self-end"

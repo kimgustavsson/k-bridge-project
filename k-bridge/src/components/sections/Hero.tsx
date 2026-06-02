@@ -1,25 +1,59 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl"; // Added useTranslations hook
+import { useTranslations } from "next-intl";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { HERO_FEATURES } from "@/constants/features";
+import { cn } from "@/lib/cn";
+
+// Slideshow images — easy to add/remove later
+const HERO_IMAGES = [
+  "/images/hero-image.jpg",
+  "/images/landscape-korea.jpg",
+  "/images/student-graduation.jpg",
+] as const;
+
+const SLIDE_DURATION_MS = 5000; // Each image stays visible for 5 seconds
 
 export function Hero() {
-  // Initialize translation function for the "Hero" namespace
   const t = useTranslations("Hero");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-advance slideshow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, SLIDE_DURATION_MS);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative bg-neutral-bg pb-16 md:pb-24">
       {/* Hero image with overlay text */}
       <div className="relative h-[420px] w-full overflow-hidden md:h-[520px] lg:h-[560px]">
-        <Image
-          src="/images/hero-main.jpg"
-          // Replaced hardcoded text with translation key
-          alt={t("imageAlt")}
-          fill
-          sizes="100vw"
-          priority
-          className="object-cover"
-        />
+        {/* Slideshow images — all stacked, only current is visible */}
+        {HERO_IMAGES.map((src, idx) => (
+          <div
+            key={src}
+            className={cn(
+              "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+              idx === currentIndex ? "opacity-100" : "opacity-0",
+            )}
+            aria-hidden={idx !== currentIndex}
+          >
+            <Image
+              src={src}
+              alt={t("imageAlt")}
+              fill
+              sizes="100vw"
+              priority={idx === 0}
+              className="object-cover"
+            />
+          </div>
+        ))}
+
         {/* Subtle darkening overlay for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/30 via-brand-navy/20 to-brand-navy/45" />
 
@@ -35,6 +69,25 @@ export function Hero() {
               {t("description")}
             </p>
           </div>
+        </div>
+
+        {/* Slide indicators (dots) */}
+        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2 md:bottom-8">
+          {HERO_IMAGES.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setCurrentIndex(idx)}
+              aria-label={`Show image ${idx + 1}`}
+              aria-current={idx === currentIndex ? "true" : "false"}
+              className={cn(
+                "h-2 rounded-full transition-all duration-100",
+                idx === currentIndex
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/50 hover:bg-white/75",
+              )}
+            />
+          ))}
         </div>
       </div>
 

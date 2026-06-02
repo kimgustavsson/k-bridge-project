@@ -425,8 +425,8 @@
     },
     "bottomNote": {
       "prefix": "Have a question that's not here?",
-      "linkText": "Send us a message",
-      "suffix": " — we're happy to help."
+      "linkText": "Send us a message.",
+      "suffix": "We're happy to help."
     }
   }
 }
