@@ -154,5 +154,51 @@
         "description": "Korea's national health insurance is required for international students, and it's also genuinely good. We help you enroll the right way so a hospital visit never becomes a financial worry."
       }
     }
+  },
+
+  "programTracks": {
+    "eyebrow": "Programs",
+    "title": "Four tracks. One bridge.",
+    "subtitle": "From a few months of Korean to a full graduate degree — pick the path that fits your goals.",
+    "labels": {
+      "duration": "Duration",
+      "cta": "Talk to an advisor"
+    },
+    "tracks": {
+      "language": {
+        "category": "Korean Language",
+        "title": "Start with the language",
+        "description": "Whether you're beginning from zero or polishing what you already know, our partner language institutes meet you at your level.",
+        "duration": "6 months – 1 year",
+        "highlights": [
+          "Beginner to advanced levels",
+          "Major university affiliated"
+        ]
+      },
+      "undergraduate": {
+        "category": "Undergraduate",
+        "title": "Earn your bachelor's in Korea",
+        "description": "Study at one of Korea's top universities and earn an internationally recognized degree. We help you choose a major, prepare your application, and navigate scholarships.",
+        "duration": "4 years",
+        "highlights": [
+          "English-taught options available",
+          "Scholarship guidance included"
+        ]
+      },
+      "graduate": {
+        "category": "Graduate",
+        "title": "Take your career further",
+        "description": "Master's and PhD programs across engineering, business, the arts, and more. Many programs offer substantial scholarships and English-taught tracks.",
+        "duration": "Master's 2 yrs · PhD 3–5 yrs",
+        "highlights": ["Research and lab placements", "Scholarship support"]
+      },
+      "exchange": {
+        "category": "Exchange & Short-term",
+        "title": "Experience Korea, briefly",
+        "description": "Not ready for a full degree? Exchange and short-term programs let you live, study, and explore Korea for a semester or summer.",
+        "duration": "1 semester – 1 year",
+        "highlights": ["Partner university programs", "Great for CV / resume"]
+      }
+    }
   }
 }
