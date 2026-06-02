@@ -25,10 +25,10 @@ export const FOOTER_GROUPS: FooterLinkGroup[] = [
   {
     id: "resources",
     links: [
-      { labelKey: "application", href: "/resources/application" },
-      { labelKey: "scholarships", href: "/resources/scholarships" },
-      { labelKey: "visa", href: "/resources/visa" },
-      { labelKey: "studentLife", href: "/resources/student-life" },
+      { labelKey: "application", href: "/contact" },
+      { labelKey: "scholarships", href: "/contact" },
+      { labelKey: "visa", href: "/contact" },
+      { labelKey: "studentLife", href: "/contact" },
     ],
   },
   {
