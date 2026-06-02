@@ -56,8 +56,6 @@ export async function sendContactMessage(
     }
 
     const { error } = await resend.emails.send({
-      // Use Resend's test domain during development.
-      // Replace with verified domain in production: "K-BRIDGE Contact <contact@k-bridge.com>"
       from: "K-BRIDGE Contact <onboarding@resend.dev>",
       to: [toEmail],
       replyTo: data.email,

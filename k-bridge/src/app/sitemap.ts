@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://kbridgeedu.com";
+const BASE_URL = "https://www.kbridgeedu.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/about", "/programs", "/contact"];
