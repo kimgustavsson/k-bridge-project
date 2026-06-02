@@ -46,7 +46,7 @@ export function Footer() {
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 flex-shrink-0 text-brand-yellow" />
               <a
-                href={`mailto:${CONTACT_INFO.phone}`}
+                href={`mailto:${CONTACT_INFO.fax}`}
                 className="hover:text-white"
               >
                 {CONTACT_INFO.phone}

@@ -14,15 +14,15 @@ export const CONTACT_METHODS: ContactMethod[] = [
     id: "email",
     icon: Mail,
     translationKey: "email",
-    value: "temporary@email.com",
-    href: "mailto:temporary@email.com",
+    value: "contact@kbridge.com",
+    href: "mailto:contact@kbridge.com",
   },
   {
     id: "phone",
     icon: Phone,
     translationKey: "phone",
-    value: "+82 31-XXX-XXXX",
-    href: "tel:+8231XXXXXXX",
+    value: "+82 031-374-9790",
+    href: "tel:+820313749790",
   },
 ];
 
