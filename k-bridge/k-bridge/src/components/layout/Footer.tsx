@@ -49,7 +49,7 @@ export function Footer() {
                 href={`mailto:${CONTACT_INFO.fax}`}
                 className="hover:text-white"
               >
-                {CONTACT_INFO.phone}
+                {CONTACT_INFO.fax}
               </a>
             </li>
             <li className="flex items-center gap-3">

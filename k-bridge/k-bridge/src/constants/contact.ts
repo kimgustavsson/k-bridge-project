@@ -46,7 +46,7 @@ export const MESSAGING_CHANNELS: MessagingChannel[] = [
     id: "WhatsApp",
     translationKey: "whatsApp",
     name: "WhatsApp",
-    handle: "+84 XXX XXX XXX",
+    handle: "+82 031-374-9790",
   },
   {
     id: "WeChat",
