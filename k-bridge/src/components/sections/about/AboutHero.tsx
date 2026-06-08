@@ -89,7 +89,7 @@ export function AboutHero() {
         {/* Right: image */}
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl md:aspect-auto md:min-h-[500px]">
           <Image
-            src="/images/student-graduation.jpg"
+            src="/images/hero-image.jpg"
             alt={t("imageAlt")}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"

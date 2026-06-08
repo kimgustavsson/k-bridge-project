@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 // Slideshow images — easy to add/remove later
 const HERO_IMAGES = [
   "/images/main-hero1.jpg",
-  "/images/main-hero2.jpg",
+  "/images/image (1).jpg",
   "/images/main-hero3.jpg",
 ] as const;
 

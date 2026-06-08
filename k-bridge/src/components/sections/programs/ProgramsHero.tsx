@@ -8,7 +8,7 @@ export function ProgramsHero() {
     <section className="relative bg-brand-navy text-white">
       <div className="relative h-[360px] w-full overflow-hidden md:h-[440px]">
         <Image
-          src="/images/student-graduation.jpg"
+          src="/images/image (4).jpg"
           alt={t("imageAlt")}
           fill
           sizes="100vw"
