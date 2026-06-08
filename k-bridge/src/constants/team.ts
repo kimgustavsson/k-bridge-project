@@ -19,8 +19,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     translationKey: "kimKyungTae",
   },
   {
-    id: "kim-hana",
-    translationKey: "kimHana",
+    id: "kim-han-Na",
+    translationKey: "kimHanNa",
   },
   {
     id: "pham-quang-hung",

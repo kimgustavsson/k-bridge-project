@@ -298,44 +298,39 @@
     "eyebrow": "Our Team",
     "title": "Meet the people behind your journey.",
     "subtitle": "A small, focused team across Korea, Vietnam, and China — committed to walking with each student from first inquiry to graduation.",
-    "leadershipBadge": "★ Leadership",
+    "leadershipBadge": "★ Director",
     "supportNote": "Plus a dedicated team of Korean language instructors, English instructors, and student support staff across our Vietnam and China offices.",
     "members": {
+      "kimSeoHu": {
+        "name": "Kim Seo-Hu",
+        "role": "Director",
+        "location": "Vietnam Region",
+        "bio": "Leading K-BRIDGE's overseas operations and shaping the vision to make Korean education accessible to students across Asia and beyond."
+      },
       "leeYongJoo": {
         "name": "Lee Yong-Joo",
-        "role": "Chief Executive Officer",
-        "location": "Korea Headquarters",
-        "bio": "Leading K-BRIDGE's vision to make Korean education accessible to students across Asia and beyond."
+        "role": "Representative",
+        "location": "Korea Headquarters"
       },
       "kimKyungTae": {
         "name": "Kim Kyung-Tae",
         "role": "General Director",
         "location": "Korea Headquarters"
       },
-      "kimSungWon": {
-        "name": "Kim Sung-Won",
-        "role": "Director of Retention Strategy",
+      "kimHanNa": {
+        "name": "Kim Han Na",
+        "role": "Manager",
         "location": "Korea Headquarters"
-      },
-      "kimSeoHu": {
-        "name": "Kim Seo-Hu",
-        "role": "Dean",
-        "location": "Vietnam Region"
       },
       "phamQuangHung": {
         "name": "Pham Quang Hung",
-        "role": "Director",
+        "role": "Manager",
         "location": "Vietnam Region"
       },
       "kimGukIl": {
         "name": "Kim Guk-il",
         "role": "Branch Manager",
         "location": "China Region"
-      },
-      "kimHana": {
-        "name": "Kim Hana",
-        "role": "Manager",
-        "location": "Korea Headquarters"
       }
     }
   },

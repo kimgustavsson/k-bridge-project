@@ -299,41 +299,36 @@
     "leadershipBadge": "★ 핵심 경영진",
     "supportNote": "이 외에도 베트남과 중국 지사에는 학생들의 학업과 현지 적응을 헌신적으로 돕는 우수한 한국어·영어 강사진 및 전담 서포트 팀이 함께하고 있습니다.",
     "members": {
+      "kimSeoHu": {
+        "name": "김서후",
+        "role": "원장",
+        "location": "베트남 지역",
+        "bio": "K-BRIDGE의 해외 사업을 이끌며, 아시아를 비롯한 전 세계 학생들에게 한국 교육의 문을 활짝 여는 비전을 그려가고 있습니다."
+      },
       "leeYongJoo": {
         "name": "이용주",
-        "role": "대표이사 (CEO)",
-        "location": "한국 본사",
-        "bio": "아시아를 넘어 전 세계 학생들이 한국의 우수한 교육을 경험할 수 있도록 K-BRIDGE의 글로벌 비전을 이끌고 있습니다."
+        "role": "대표",
+        "location": "한국 본사"
       },
       "kimKyungTae": {
         "name": "김경태",
-        "role": "총괄 디렉터",
+        "role": "총괄 본부장",
         "location": "한국 본사"
       },
-      "kimSungWon": {
-        "name": "김성원",
-        "role": "학생 관리 총괄 디렉터",
+      "kimHanNa": {
+        "name": "김한나",
+        "role": "매니저",
         "location": "한국 본사"
-      },
-      "kimSeoHu": {
-        "name": "김서후",
-        "role": "대표 원장",
-        "location": "베트남 지사"
       },
       "phamQuangHung": {
         "name": "팜 꽝 흥",
-        "role": "디렉터",
-        "location": "베트남 지사"
+        "role": "매니저",
+        "location": "베트남 지역"
       },
       "kimGukIl": {
         "name": "김국일",
-        "role": "중국 지사장",
-        "location": "중국 지사"
-      },
-      "kimHana": {
-        "name": "김하나",
-        "role": "매니저",
-        "location": "한국 본사"
+        "role": "지사장",
+        "location": "중국 지역"
       }
     }
   },
