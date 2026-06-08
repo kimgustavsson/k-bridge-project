@@ -14,7 +14,7 @@ export const PROGRAMS: ProgramItem[] = [
     titleKey: "degree.title",
     descriptionKey: "degree.description",
     ctaLabelKey: "degree.ctaLabel",
-    image: "/images/find-program-card.jpg",
+    image: "/images/degree-card.jpg",
     href: "/programs",
   },
 ];

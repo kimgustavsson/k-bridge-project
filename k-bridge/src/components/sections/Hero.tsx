@@ -9,9 +9,9 @@ import { cn } from "@/lib/cn";
 
 // Slideshow images — easy to add/remove later
 const HERO_IMAGES = [
-  "/images/hero-image.jpg",
-  "/images/landscape-korea.jpg",
-  "/images/student-graduation.jpg",
+  "/images/main-hero1.jpg",
+  "/images/main-hero2.jpg",
+  "/images/main-hero3.jpg",
 ] as const;
 
 const SLIDE_DURATION_MS = 3000; // Each image stays visible for 3 seconds
